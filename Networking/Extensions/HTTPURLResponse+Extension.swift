@@ -6,6 +6,6 @@ extension HTTPURLResponse {
     }
 
     public var isError: Bool {
-        return (400...599).contains(statusCode)
+        return !isSuccessful
     }
 }
