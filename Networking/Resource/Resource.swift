@@ -11,7 +11,7 @@ public struct Resource<Request: Encodable, Response: Decodable> {
     let body: HTTPBody<Request>?
     let decoder: ResourceDecoder
 
-    public init(endpoint: String,
+    public init(endpoint: String, //swiftlint:disable:this function_default_parameter_at_end
                 queryParameters: [URLQueryItem]? = nil,
                 method: HTTPMethod = .get,
                 body: HTTPBody<Request>? = nil,

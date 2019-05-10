@@ -1,13 +1,29 @@
 import Foundation
 
 extension URLRequest {
+    public enum Error: String, Swift.Error {
+        case malformedResource
+        case malformedBaseURL
+    }
+
     init<Request: Encodable, Response: Decodable>(resource: Resource<Request, Response>, baseURL: URL) throws {
-        var components = URLComponents(url: baseURL,
-                                       resolvingAgainstBaseURL: false)!
+        guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
+            throw Error.malformedBaseURL
+        }
 
-        components.queryItems = resource.queryParameters
+        components.path = resource.endpoint
 
-        self = URLRequest(url: components.url!)
+        let queryItems = (components.queryItems ?? []) + (resource.queryParameters ?? [])
+
+        if !queryItems.isEmpty {
+            components.queryItems = queryItems
+        }
+
+        guard let url = components.url else {
+            throw Error.malformedResource
+        }
+
+        self = URLRequest(url: url)
 
         if let body = resource.body {
             httpBody = try body.encoded()

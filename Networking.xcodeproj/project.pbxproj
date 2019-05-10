@@ -12,7 +12,7 @@
 		870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
 		870E00EF22859E61004A5931 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
 		870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
-		870E00F32285A591004A5931 /* Webservice.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift.swift */; };
+		870E00F32285A591004A5931 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift */; };
 		870E00F52285A618004A5931 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
 		870E00F72285A676004A5931 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
 		870E00FA2285A789004A5931 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -28,7 +28,7 @@
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
-		870E00F22285A591004A5931 /* Webservice.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift.swift; sourceTree = "<group>"; };
+		870E00F22285A591004A5931 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		870E00F42285A618004A5931 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		870E00F62285A676004A5931 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		870E00F92285A789004A5931 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				870E00E72285907B004A5931 /* Requests */,
 				870E00E622859074004A5931 /* HTTP */,
-				870E00F22285A591004A5931 /* Webservice.swift.swift */,
+				870E00F22285A591004A5931 /* Webservice.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -166,6 +166,7 @@
 				874C03CA227B093500AF0F0F /* Sources */,
 				874C03CB227B093500AF0F0F /* Frameworks */,
 				874C03CC227B093500AF0F0F /* Resources */,
+				870E01A92285BAB9004A5931 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -218,6 +219,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		870E01A92285BAB9004A5931 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint --strict\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		874C03CA227B093500AF0F0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -226,7 +248,7 @@
 				870E00E9228590A3004A5931 /* HTTPMethod.swift in Sources */,
 				870E00F72285A676004A5931 /* URLRequest+Extension.swift in Sources */,
 				870E00FC2285A799004A5931 /* HTTPHeader.swift in Sources */,
-				870E00F32285A591004A5931 /* Webservice.swift.swift in Sources */,
+				870E00F32285A591004A5931 /* Webservice.swift in Sources */,
 				870E00F52285A618004A5931 /* URLSession+Extension.swift in Sources */,
 				870E00EF22859E61004A5931 /* Resource.swift in Sources */,
 				870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */,

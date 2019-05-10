@@ -1,3 +1,3 @@
 import Foundation
 
-struct Empty: Codable {}
+public struct Empty: Codable {}

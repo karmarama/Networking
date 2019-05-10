@@ -16,7 +16,7 @@ public protocol ContentTypeDecoder {
 
 public struct JSONContentType: ContentType {
     public var header: HTTPHeader {
-        return ("Content-Type","application/json")
+        return ("Content-Type", "application/json")
     }
 
     public var encoder: ContentTypeEncoder {
