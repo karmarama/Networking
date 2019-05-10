@@ -11,7 +11,7 @@ extension URLRequest {
             throw Error.malformedBaseURL
         }
 
-        components.path = resource.endpoint
+        components.path = components.path.appending(resource.endpoint)
 
         let queryItems = (components.queryItems ?? []) + resource.queryParameters
 
