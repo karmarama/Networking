@@ -20,7 +20,7 @@ public extension RequestBehavior {
     func after(completion: URLResponse?) { }
     func after(failure: Error?) { }
 
-    func adding(_ behavior: RequestBehavior) -> RequestBehavior {
+    func and(_ behavior: RequestBehavior) -> RequestBehavior {
         return CompoundRequestBehavior(behaviors: [self, behavior])
     }
 }
@@ -28,7 +28,6 @@ public extension RequestBehavior {
 struct EmptyRequestBehavior: RequestBehavior {}
 
 private struct CompoundRequestBehavior: RequestBehavior {
-
     let behaviors: [RequestBehavior]
 
     init(behaviors: [RequestBehavior]) {
