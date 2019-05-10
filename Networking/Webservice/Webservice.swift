@@ -20,10 +20,14 @@ public struct Webservice: ResourceRequestable {
 
     private let baseURL: URL
     private let session: URLSessionDataTaskLoader
+    private let defaultRequestBehaviour: RequestBehavior
 
-    public init(baseURL: URL, session: URLSessionDataTaskLoader = URLSession.shared) {
+    public init(baseURL: URL,
+                session: URLSessionDataTaskLoader = URLSession.shared,
+                defaultRequestBehaviour: RequestBehavior? = nil) {
         self.baseURL = baseURL
         self.session = session
+        self.defaultRequestBehaviour = defaultRequestBehaviour ?? EmptyRequestBehavior()
     }
 
     public func load<Request: Encodable, Response: Decodable>
@@ -31,7 +35,10 @@ public struct Webservice: ResourceRequestable {
          completion: @escaping (Result<Response, Swift.Error>) -> Void) {
 
         do {
-            let request = try URLRequest(resource: resource, baseURL: baseURL)
+            let request = resource.requestBehaviour.modify(planned: try URLRequest(resource: resource,
+                                                                                   baseURL: baseURL))
+
+            resource.requestBehaviour.before(sending: request)
 
             session.dataTask(with: request) { data, response, error in
                 if let response = response as? HTTPURLResponse {
@@ -40,11 +47,14 @@ public struct Webservice: ResourceRequestable {
                                                                         from: data,
                                                                         response: response)
                         })
+
+                        resource.requestBehaviour.after(completion: response)
                     } else {
                         completion(.failure(Error.http(response.statusCode, error)))
                     }
                 } else {
                     completion(.failure(Error.unknown(error)))
+                    resource.requestBehaviour.after(failure: error)
                 }
             }.resume()
         } catch {

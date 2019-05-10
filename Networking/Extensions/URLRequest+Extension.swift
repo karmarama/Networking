@@ -13,11 +13,13 @@ extension URLRequest {
 
         components.path = resource.endpoint
 
-        let queryItems = (components.queryItems ?? []) + (resource.queryParameters ?? [])
+        let queryItems = (components.queryItems ?? []) + resource.queryParameters
 
         if !queryItems.isEmpty {
             components.queryItems = queryItems
         }
+
+        components = resource.requestBehaviour.modify(urlComponents: components)
 
         guard let url = components.url else {
             throw Error.malformedResource
