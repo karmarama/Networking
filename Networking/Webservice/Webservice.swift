@@ -41,6 +41,9 @@ public struct Webservice: ResourceRequestable {
             resource.requestBehaviour.before(sending: request)
 
             session.dataTask(with: request) { data, response, error in
+                let (data, response, error) = resource.requestBehaviour.modifyResponse(data: data,
+                                                                                       response: response,
+                                                                                       error: error)
                 if let response = response as? HTTPURLResponse {
                     if response.isSuccessful {
                         completion(Result { try resource.decoder.decode(Response.self,
@@ -49,13 +52,18 @@ public struct Webservice: ResourceRequestable {
                         })
 
                         resource.requestBehaviour.after(completion: response)
+
+                        // Early return to prevent calling after(failure:) RequestBehavior
+                        return
                     } else {
                         completion(.failure(Error.http(response.statusCode, error)))
                     }
                 } else {
                     completion(.failure(Error.unknown(error)))
-                    resource.requestBehaviour.after(failure: error)
                 }
+
+                resource.requestBehaviour.after(failure: error)
+
             }.resume()
         } catch {
             completion(.failure(error))

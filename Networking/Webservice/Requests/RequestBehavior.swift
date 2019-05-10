@@ -5,6 +5,7 @@ public protocol RequestBehavior {
     func modify(planned request: URLRequest) -> URLRequest
     func before(sending request: URLRequest)
 
+    func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?)
     func after(completion response: URLResponse?)
     func after(failure: Error?)
 }
@@ -14,6 +15,8 @@ public extension RequestBehavior {
     func modify(planned request: URLRequest) -> URLRequest { return request }
     func before(sending: URLRequest) { }
 
+    func modifyResponse(data: Data?, response: URLResponse?, error: Error?)
+        -> (Data?, URLResponse?, Error?) { return (data, response, error) }
     func after(completion: URLResponse?) { }
     func after(failure: Error?) { }
 
@@ -25,10 +28,21 @@ public extension RequestBehavior {
 struct EmptyRequestBehavior: RequestBehavior {}
 
 private struct CompoundRequestBehavior: RequestBehavior {
+
     let behaviors: [RequestBehavior]
 
     init(behaviors: [RequestBehavior]) {
         self.behaviors = behaviors
+    }
+
+    func modify(urlComponents: URLComponents) -> URLComponents {
+        var urlComponents = urlComponents
+
+        behaviors.forEach {
+            urlComponents = $0.modify(urlComponents: urlComponents)
+        }
+
+        return urlComponents
     }
 
     func modify(planned request: URLRequest) -> URLRequest {
@@ -45,6 +59,18 @@ private struct CompoundRequestBehavior: RequestBehavior {
         behaviors.forEach {
             $0.before(sending: request)
         }
+    }
+
+    func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?) {
+        var data = data
+        var response = response
+        var error = error
+
+        behaviors.forEach {
+            (data, response, error) = $0.modifyResponse(data: data, response: response, error: error)
+        }
+
+        return (data, response, error)
     }
 
     func after(completion response: URLResponse?) {
