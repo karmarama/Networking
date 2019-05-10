@@ -7,15 +7,15 @@ public protocol ResourceDecoder {
 public struct Resource<Request: Encodable, Response: Decodable> {
     let endpoint: String
     let queryParameters: [URLQueryItem]
-    let method: HTTPMethod
-    let body: HTTPBody<Request>?
+    let method: HTTP.Method
+    let body: HTTP.Body<Request>?
     let requestBehaviour: RequestBehavior
     let decoder: ResourceDecoder
 
     public init(endpoint: String, //swiftlint:disable:this function_default_parameter_at_end
                 queryParameters: [URLQueryItem] = [],
-                method: HTTPMethod = .get,
-                body: HTTPBody<Request>? = nil,
+                method: HTTP.Method = .get,
+                body: HTTP.Body<Request>? = nil,
                 requestBehaviour: RequestBehavior? = nil,
                 decoder: ResourceDecoder) {
             self.endpoint = endpoint

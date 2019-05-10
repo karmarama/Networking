@@ -10,11 +10,9 @@ public protocol URLSessionDataTaskLoader {
                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
-public typealias HTTPStatusCode = Int
-
 public struct Webservice: ResourceRequestable {
     public enum Error: Swift.Error {
-        case http(HTTPStatusCode, Swift.Error?)
+        case http(HTTP.StatusCode, Swift.Error?)
         case unknown(Swift.Error?)
     }
 

@@ -1,9 +1,9 @@
 import Foundation
 
 public struct HeaderProvider: RequestBehavior {
-    private let headers: [HTTPHeader]
+    private let headers: [HTTP.Header]
 
-    public init(headers: [HTTPHeader]) {
+    public init(headers: [HTTP.Header]) {
         self.headers = headers
     }
 
