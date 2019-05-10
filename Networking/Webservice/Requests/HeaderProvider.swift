@@ -3,8 +3,8 @@ import Foundation
 public struct HeaderProvider: RequestBehavior {
     private let headers: [HTTPHeader]
 
-    public func and(_ headerProvider: HeaderProvider) -> HeaderProvider {
-        return HeaderProvider(headers: headers + headerProvider.headers)
+    public init(headers: [HTTPHeader]) {
+        self.headers = headers
     }
 
     public func modify(planned request: URLRequest) -> URLRequest {

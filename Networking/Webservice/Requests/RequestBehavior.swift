@@ -8,6 +8,7 @@ public protocol RequestBehavior {
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?)
     func after(completion response: URLResponse?)
     func after(failure: Error?)
+    func and(_ behavior: RequestBehavior) -> RequestBehavior
 }
 
 public extension RequestBehavior {
@@ -28,7 +29,7 @@ public extension RequestBehavior {
 struct EmptyRequestBehavior: RequestBehavior {}
 
 private struct CompoundRequestBehavior: RequestBehavior {
-    let behaviors: [RequestBehavior]
+    private let behaviors: [RequestBehavior]
 
     init(behaviors: [RequestBehavior]) {
         self.behaviors = behaviors
