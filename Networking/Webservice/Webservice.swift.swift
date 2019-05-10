@@ -13,22 +13,8 @@ protocol URLSessionDataTaskLoader {
 typealias HTTPStatusCode = Int
 
 struct Webservice: ResourceRequestable {
-    enum Error: Swift.Error, Equatable {
-        static func == (lhs: Error, rhs: Error) -> Bool {
-            switch (lhs, rhs) {
-            case (let .http(statusLhs, _), let .http(statusRhs, _)):
-                return statusLhs == statusRhs
-            case (.noData, .noData):
-                return true
-            case (.unknown, .unknown):
-                return true
-            default:
-                return false
-            }
-        }
-
+    enum Error: Swift.Error {
         case http(HTTPStatusCode, Swift.Error?)
-        case noData(Swift.Error?)
         case unknown(Swift.Error?)
     }
 
@@ -49,11 +35,9 @@ struct Webservice: ResourceRequestable {
             session.dataTask(with: request) { data, response, error in
                 if let response = response as? HTTPURLResponse {
                     if response.isSuccessful {
-                        if let data = data {
-                            completion(Result { try resource.decoder.decode(Response.self, from: data) })
-                        } else {
-                            completion(.failure(Error.noData(error)))
-                        }
+                        completion(Result { try resource.decoder.decode(Response.self,
+                                                                        from: data,
+                                                                        response: response) })
                     } else {
                         completion(.failure(Error.http(response.statusCode, error)))
                     }
