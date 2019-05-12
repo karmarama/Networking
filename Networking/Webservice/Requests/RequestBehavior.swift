@@ -8,7 +8,6 @@ public protocol RequestBehavior {
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?)
     func after(completion response: URLResponse?)
     func after(failure: Error?)
-    func and(_ behavior: RequestBehavior) -> RequestBehavior
 }
 
 public extension RequestBehavior {
@@ -20,7 +19,6 @@ public extension RequestBehavior {
         -> (Data?, URLResponse?, Error?) { return (data, response, error) }
     func after(completion: URLResponse?) { }
     func after(failure: Error?) { }
-
     func and(_ behavior: RequestBehavior) -> RequestBehavior {
         return CompoundRequestBehavior(behaviors: [self, behavior])
     }
