@@ -4,7 +4,9 @@ import XCTest
 final class ResourceTests: XCTestCase {
     func testURLRequestFromResourceNoScheme() throws {
         let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: EmptyDecoder())
-        let request = try URLRequest(resource: resource, baseURL: URL(string: "www.karmarama.com")!)
+        let request = try URLRequest(resource: resource,
+                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     baseURL: URL(string: "www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
         XCTAssertEqual(request.httpBody, nil)
@@ -14,7 +16,9 @@ final class ResourceTests: XCTestCase {
 
     func testURLRequestFromResourceWithScheme() throws {
         let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: EmptyDecoder())
-        let request = try URLRequest(resource: resource, baseURL: URL(string: "https://www.karmarama.com")!)
+        let request = try URLRequest(resource: resource,
+                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
         XCTAssertEqual(request.httpBody, nil)
@@ -27,7 +31,9 @@ final class ResourceTests: XCTestCase {
                                               queryParameters: [URLQueryItem(name: "testKey", value: "testValue")],
                                               decoder: EmptyDecoder())
 
-        let request = try URLRequest(resource: resource, baseURL: URL(string: "https://www.karmarama.com")!)
+        let request = try URLRequest(resource: resource,
+                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
         XCTAssertEqual(request.httpBody, nil)
@@ -42,7 +48,9 @@ final class ResourceTests: XCTestCase {
                                                                          contentType: JSONContentType()),
                                                          decoder: EmptyDecoder())
 
-        let request = try URLRequest(resource: resource, baseURL: URL(string: "https://www.karmarama.com")!)
+        let request = try URLRequest(resource: resource,
+                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "POST")
         XCTAssertNotNil(request.httpBody)
@@ -56,6 +64,7 @@ final class ResourceTests: XCTestCase {
         let expect = expectation(description: "Wait for error")
 
         XCTAssertThrowsError(try URLRequest(resource: resource,
+                                            defaultRequestBehavior: EmptyRequestBehavior(),
                                             baseURL: URL(string: "https://www.karmarama.com")!)) { _ in
                                                 expect.fulfill()
         }
@@ -70,6 +79,7 @@ final class ResourceTests: XCTestCase {
 
         // stackoverflow.com/a/55627352/614442
         XCTAssertThrowsError(try URLRequest(resource: resource,
+                                            defaultRequestBehavior: EmptyRequestBehavior(),
                                             baseURL: URL(string: "a://@@")!)) { _ in
                                                 expect.fulfill()
         }

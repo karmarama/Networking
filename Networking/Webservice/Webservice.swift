@@ -18,14 +18,14 @@ public struct Webservice: ResourceRequestable {
 
     private let baseURL: URL
     private let session: URLSessionDataTaskLoader
-    private let defaultRequestBehaviour: RequestBehavior
+    private let defaultRequestBehavior: RequestBehavior
 
     public init(baseURL: URL,
                 session: URLSessionDataTaskLoader = URLSession.shared,
-                defaultRequestBehaviour: RequestBehavior? = nil) {
+                defaultRequestBehavior: RequestBehavior? = nil) {
         self.baseURL = baseURL
         self.session = session
-        self.defaultRequestBehaviour = defaultRequestBehaviour ?? EmptyRequestBehavior()
+        self.defaultRequestBehavior = defaultRequestBehavior ?? EmptyRequestBehavior()
     }
 
     public func load<Request: Encodable, Response: Decodable>
@@ -33,15 +33,18 @@ public struct Webservice: ResourceRequestable {
          completion: @escaping (Result<Response, Swift.Error>) -> Void) {
 
         do {
-            let request = resource.requestBehaviour.modify(planned: try URLRequest(resource: resource,
-                                                                                   baseURL: baseURL))
+            let requestBehavior = defaultRequestBehavior.and(resource.requestBehaviour)
 
-            resource.requestBehaviour.before(sending: request)
+            let request = requestBehavior.modify(planned: try URLRequest(resource: resource,
+                                                                         defaultRequestBehavior: defaultRequestBehavior,
+                                                                         baseURL: baseURL))
+
+            requestBehavior.before(sending: request)
 
             session.dataTask(with: request) { data, response, error in
-                let (data, response, error) = resource.requestBehaviour.modifyResponse(data: data,
-                                                                                       response: response,
-                                                                                       error: error)
+                let (data, response, error) = requestBehavior.modifyResponse(data: data,
+                                                                             response: response,
+                                                                             error: error)
                 if let response = response as? HTTPURLResponse {
                     if response.isSuccessful {
                         completion(Result { try resource.decoder.decode(Response.self,
@@ -49,7 +52,7 @@ public struct Webservice: ResourceRequestable {
                                                                         response: response)
                         })
 
-                        resource.requestBehaviour.after(completion: response)
+                        requestBehavior.after(completion: response)
 
                         // Early return to prevent calling after(failure:) RequestBehavior
                         return
@@ -60,7 +63,7 @@ public struct Webservice: ResourceRequestable {
                     completion(.failure(Error.unknown(error)))
                 }
 
-                resource.requestBehaviour.after(failure: error)
+                requestBehavior.after(failure: error)
 
             }.resume()
         } catch {

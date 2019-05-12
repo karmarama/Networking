@@ -90,92 +90,66 @@ final class WebserviceTests: XCTestCase {
 
         waitForExpectations(timeout: 0.1, handler: nil)
     }
-//
-//    func testHTTPErrorDataTaskFailureNoError() {
-//        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
-//                                                       response: HTTPURLResponse.response(code: 400),
-//                                                       error: nil)
-//        let sut = Webservice(baseURL: URL.dummy(), session: sessionMock)
-//
-//        let resource = Empty.fake()
-//
-//        sut.load(resource) { result in
-//            switch result {
-//            case .success(let empty):
-//                XCTFail("Expected failure result, got \(empty)")
-//            case .failure(let error):
-//                guard let webserviceError = error as? WebserviceError else {
-//                    XCTFail()
-//                    return
-//                }
-//
-//                XCTAssertEqual(WebserviceError.http(400, nil), webserviceError,
-//                               "Expected 400, got \(webserviceError)")
-//            }
-//        }
-//    }
-//
-//    func testNoDataTaskFailure() {
-//        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
-//                                                       response: HTTPURLResponse.response(code: 200),
-//                                                       error: nil)
-//        let sut = Webservice(baseURL: URL.dummy(), session: sessionMock)
-//
-//        let resource = Empty.fake()
-//
-//        sut.load(resource) { result in
-//            switch result {
-//            case .success(let empty):
-//                XCTFail("Expected failure result, got \(empty)")
-//            case .failure(let error):
-//                guard let webserviceError = error as? WebserviceError else {
-//                    XCTFail()
-//                    return
-//                }
-//
-//                XCTAssertEqual(WebserviceError.noData(nil), webserviceError,
-//                               "Expect noData, got \(webserviceError)")
-//            }
-//        }
-//    }
-//
-//    func testUnknownErrorTaskFailure() {
-//        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
-//                                                       response: nil,
-//                                                       error: nil)
-//        let sut = Webservice(baseURL: URL.dummy(), session: sessionMock)
-//
-//        let resource = Empty.fake()
-//
-//        sut.load(resource) { result in
-//            switch result {
-//            case .success(let empty):
-//                XCTFail("Expected failure result, got \(empty)")
-//            case .failure(let error):
-//                guard let webserviceError = error as? WebserviceError else {
-//                    XCTFail()
-//                    return
-//                }
-//
-//                XCTAssertEqual(WebserviceError.unknown(nil), webserviceError,
-//                               "Expect unknown, got \(webserviceError)")
-//            }
-//        }
-//    }
-//
-//    func testHTTPURLResponseSuccess() {
-//        let response = HTTPURLResponse(url: URL.dummy(),
-//                                       statusCode: 201,
-//                                       httpVersion: nil,
-//                                       headerFields: nil)!
-//        XCTAssertTrue(response.isSuccessful)
-//    }
-//
-//    func testHTTPURLResponseError() {
-//        let response = HTTPURLResponse(url: URL.dummy(),
-//                                       statusCode: 403,
-//                                       httpVersion: nil,
-//                                       headerFields: nil)!
-//        XCTAssertTrue(response.isError)
-//    }
+
+    func testRequestBehaviorOrderForSuccess() {
+        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
+                                                       response: HTTPURLResponse(url: URL.fake(),
+                                                                                 statusCode: 200,
+                                                                                 httpVersion: nil,
+                                                                                 headerFields: nil),
+                                                       error: nil)
+        let requestBehaviorMock = RequestBehaviorMock()
+
+        webservice = Webservice(baseURL: URL.fake(),
+                                session: sessionMock,
+                                defaultRequestBehavior: requestBehaviorMock)
+
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: EmptyDecoder())
+
+        let expect = expectation(description: "async")
+
+        webservice.load(resource) { _ in
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: 0.1, handler: nil)
+
+        XCTAssertEqual(requestBehaviorMock.callOrder.count, 5)
+        XCTAssertEqual(requestBehaviorMock.callOrder, ["modify(urlComponents:)",
+                                                       "modify(planned:)",
+                                                       "before(sending:)",
+                                                       "modifyResponse(data:response:error:)",
+                                                       "after(completion:)"])
+    }
+
+    func testRequestBehaviorOrderForFailure() {
+        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
+                                                       response: HTTPURLResponse(url: URL.fake(),
+                                                                                 statusCode: 400,
+                                                                                 httpVersion: nil,
+                                                                                 headerFields: nil),
+                                                       error: nil)
+        let requestBehaviorMock = RequestBehaviorMock()
+
+        webservice = Webservice(baseURL: URL.fake(),
+                                session: sessionMock,
+                                defaultRequestBehavior: requestBehaviorMock)
+
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: EmptyDecoder())
+
+        let expect = expectation(description: "async")
+
+        webservice.load(resource) { _ in
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: 0.1, handler: nil)
+
+        XCTAssertEqual(requestBehaviorMock.callOrder.count, 5)
+        XCTAssertEqual(requestBehaviorMock.callOrder, ["modify(urlComponents:)",
+                                                       "modify(planned:)",
+                                                       "before(sending:)",
+                                                       "modifyResponse(data:response:error:)",
+                                                       "after(failure:)"])
+    }
 }
