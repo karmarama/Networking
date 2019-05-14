@@ -152,4 +152,36 @@ final class WebserviceTests: XCTestCase {
                                                        "modifyResponse(data:response:error:)",
                                                        "after(failure:)"])
     }
+
+    func testWebserviceErrorWithInvalidResource() {
+        let baseURL = URL(string: "a://@@")!
+        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
+                                                       response: HTTPURLResponse(url: baseURL,
+                                                                                 statusCode: 400,
+                                                                                 httpVersion: nil,
+                                                                                 headerFields: nil),
+                                                       error: nil)
+        let requestBehaviorMock = RequestBehaviorMock()
+
+        webservice = Webservice(baseURL: baseURL,
+                                session: sessionMock,
+                                defaultRequestBehavior: requestBehaviorMock)
+
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: EmptyDecoder())
+
+        let expect = expectation(description: "async")
+
+        webservice.load(resource) { result in
+            guard case let .failure(error) = result,
+                let requestError = error as? URLRequest.Error else {
+                XCTFail("Expected a URLRequest error")
+                return
+            }
+
+            XCTAssertTrue(requestError == URLRequest.Error.malformedBaseURL)
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: 0.1, handler: nil)
+    }
 }

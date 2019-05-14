@@ -1,7 +1,7 @@
 import Foundation
 
 extension JSONDecoder: ResourceDecoder {
-    enum Error: Swift.Error {
+    public enum Error: Swift.Error {
         case noData
     }
 
