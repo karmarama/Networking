@@ -8,6 +8,11 @@ public struct HTTP {
         public let data: Content
         public let contentType: ContentType
 
+        public init(data: Content, contentType: ContentType) {
+            self.data = data
+            self.contentType = contentType
+        }
+
         public func encoded() throws -> Data {
             return try contentType.encoder.encode(data)
         }

@@ -26,6 +26,8 @@ public struct JSONContentType: ContentType {
     public var decoder: ContentTypeDecoder {
         return JSONDecoder()
     }
+
+    public init() {}
 }
 
 extension JSONEncoder: ContentTypeEncoder {}

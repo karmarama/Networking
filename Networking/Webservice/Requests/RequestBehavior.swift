@@ -6,19 +6,17 @@ public protocol RequestBehavior {
     func before(sending request: URLRequest)
 
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?)
-    func after(completion response: URLResponse?)
-    func after(failure: Error?)
+    func after(completion result: Result<HTTPURLResponse, Error>)
 }
 
 public extension RequestBehavior {
     func modify(urlComponents: URLComponents) -> URLComponents { return urlComponents }
     func modify(planned request: URLRequest) -> URLRequest { return request }
-    func before(sending: URLRequest) { }
+    func before(sending: URLRequest) {}
 
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?)
         -> (Data?, URLResponse?, Error?) { return (data, response, error) }
-    func after(completion: URLResponse?) { }
-    func after(failure: Error?) { }
+    func after(completion result: Result<HTTPURLResponse, Error>) {}
     func and(_ behavior: RequestBehavior) -> RequestBehavior {
         return CompoundRequestBehavior(behaviors: [self, behavior])
     }
@@ -71,15 +69,9 @@ private struct CompoundRequestBehavior: RequestBehavior {
         return (data, response, error)
     }
 
-    func after(completion response: URLResponse?) {
+    func after(completion result: Result<HTTPURLResponse, Error>) {
         behaviors.forEach {
-            $0.after(completion: response)
-        }
-    }
-
-    func after(failure: Error?) {
-        behaviors.forEach {
-            $0.after(failure: failure)
+            $0.after(completion: result)
         }
     }
 }

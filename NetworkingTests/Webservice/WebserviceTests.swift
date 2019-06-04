@@ -150,7 +150,7 @@ final class WebserviceTests: XCTestCase {
                                                        "modify(planned:)",
                                                        "before(sending:)",
                                                        "modifyResponse(data:response:error:)",
-                                                       "after(failure:)"])
+                                                       "after(completion:)"])
     }
 
     func testWebserviceErrorWithInvalidResource() {

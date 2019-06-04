@@ -52,19 +52,18 @@ public struct Webservice: ResourceRequestable {
                                                                         response: response)
                         })
 
-                        requestBehavior.after(completion: response)
+                        requestBehavior.after(completion: .success(response))
 
-                        // Early return to prevent calling after(failure:) RequestBehavior
+                        // Early return to prevent calling after(completion:) RequestBehavior for failure
                         return
                     } else {
                         completion(.failure(Error.http(response.statusCode, error)))
                     }
                 } else {
-                    completion(.failure(Error.unknown(error)))
+                    completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
                 }
 
-                requestBehavior.after(failure: error)
-
+                requestBehavior.after(completion: .failure(error ?? Error.unknown(error)))
             }.resume()
         } catch {
             completion(.failure(error))
