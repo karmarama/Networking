@@ -54,7 +54,7 @@
 		870E01012285B1B6004A5931 /* EmptyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01002285B1B6004A5931 /* EmptyDecoder.swift */; };
 		870E01AF2285C5C9004A5931 /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		870E01B12285E13D004A5931 /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
-		870E01BD2286015E004A5931 /* Networking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874C03CE227B093500AF0F0F /* Networking_iOS.framework */; };
+		870E01BD2286015E004A5931 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874C03CE227B093500AF0F0F /* Networking.framework */; };
 		870E01C622860187004A5931 /* HeaderProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01C522860187004A5931 /* HeaderProviderTests.swift */; };
 		870E01CC22861386004A5931 /* HTTPBodyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01CB22861386004A5931 /* HTTPBodyTests.swift */; };
 		870E01CF2286148E004A5931 /* ContentTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01CE2286148E004A5931 /* ContentTypeTests.swift */; };
@@ -80,9 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EDBC85622DCBC0C006DB79E /* Networking_mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDBC86F22DCBDE0006DB79E /* Networking_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDBC88822DCBE07006DB79E /* Networking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		870E01DE22887749004A5931 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		870E01E122887BE7004A5931 /* RequestBehaviorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehaviorMock.swift; sourceTree = "<group>"; };
 		870E01F5228AFBB4004A5931 /* JSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderTests.swift; sourceTree = "<group>"; };
-		874C03CE227B093500AF0F0F /* Networking_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		874C03CE227B093500AF0F0F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874C03D1227B093500AF0F0F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		874C03D2227B093500AF0F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				870E01BD2286015E004A5931 /* Networking_iOS.framework in Frameworks */,
+				870E01BD2286015E004A5931 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +316,11 @@
 		874C03CF227B093500AF0F0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				874C03CE227B093500AF0F0F /* Networking_iOS.framework */,
+				874C03CE227B093500AF0F0F /* Networking.framework */,
 				870E01B82286015D004A5931 /* NetworkingTests.xctest */,
-				0EDBC85622DCBC0C006DB79E /* Networking_mac.framework */,
-				0EDBC86F22DCBDE0006DB79E /* Networking_watch.framework */,
-				0EDBC88822DCBE07006DB79E /* Networking_tvOS.framework */,
+				0EDBC85622DCBC0C006DB79E /* Networking.framework */,
+				0EDBC86F22DCBDE0006DB79E /* Networking.framework */,
+				0EDBC88822DCBE07006DB79E /* Networking.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 			);
 			name = "Networking-mac";
 			productName = NetworkingMac;
-			productReference = 0EDBC85622DCBC0C006DB79E /* Networking_mac.framework */;
+			productReference = 0EDBC85622DCBC0C006DB79E /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		0EDBC86E22DCBDE0006DB79E /* Networking-watch */ = {
@@ -416,7 +416,7 @@
 			);
 			name = "Networking-watch";
 			productName = "Networking-watch";
-			productReference = 0EDBC86F22DCBDE0006DB79E /* Networking_watch.framework */;
+			productReference = 0EDBC86F22DCBDE0006DB79E /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		0EDBC88722DCBE07006DB79E /* Networking-tvOS */ = {
@@ -434,7 +434,7 @@
 			);
 			name = "Networking-tvOS";
 			productName = "Networking-tvOS";
-			productReference = 0EDBC88822DCBE07006DB79E /* Networking_tvOS.framework */;
+			productReference = 0EDBC88822DCBE07006DB79E /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		870E01B72286015D004A5931 /* NetworkingTests */ = {
@@ -471,7 +471,7 @@
 			);
 			name = "Networking-iOS";
 			productName = Networking;
-			productReference = 874C03CE227B093500AF0F0F /* Networking_iOS.framework */;
+			productReference = 874C03CE227B093500AF0F0F /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -708,7 +708,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -736,7 +736,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -762,7 +762,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-watch";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -790,7 +790,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-watch";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -817,7 +817,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -844,7 +844,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1043,7 +1043,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.karmarama.Networking;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1069,7 +1069,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.karmarama.Networking;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
