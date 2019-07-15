@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EDBC85A22DCBC0C006DB79E /* NetworkingMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -20,7 +19,6 @@
 		0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
 		0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
 		0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
-		0EDBC87322DCBDE1006DB79E /* Networking_watch.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDBC87122DCBDE1006DB79E /* Networking_watch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDBC87722DCBDEE006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -33,7 +31,6 @@
 		0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
 		0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
 		0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
-		0EDBC88C22DCBE07006DB79E /* Networking_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDBC88A22DCBE07006DB79E /* Networking_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDBC89022DCBE14006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -84,14 +81,8 @@
 
 /* Begin PBXFileReference section */
 		0EDBC85622DCBC0C006DB79E /* Networking_mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingMac.h; sourceTree = "<group>"; };
-		0EDBC85922DCBC0C006DB79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDBC86F22DCBDE0006DB79E /* Networking_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDBC87122DCBDE1006DB79E /* Networking_watch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking_watch.h; sourceTree = "<group>"; };
-		0EDBC87222DCBDE1006DB79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDBC88822DCBE07006DB79E /* Networking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EDBC88A22DCBE07006DB79E /* Networking_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking_tvOS.h; sourceTree = "<group>"; };
-		0EDBC88B22DCBE07006DB79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -161,33 +152,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EDBC85722DCBC0C006DB79E /* NetworkingMac */ = {
-			isa = PBXGroup;
-			children = (
-				0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */,
-				0EDBC85922DCBC0C006DB79E /* Info.plist */,
-			);
-			path = NetworkingMac;
-			sourceTree = "<group>";
-		};
-		0EDBC87022DCBDE1006DB79E /* Networking-watch */ = {
-			isa = PBXGroup;
-			children = (
-				0EDBC87122DCBDE1006DB79E /* Networking_watch.h */,
-				0EDBC87222DCBDE1006DB79E /* Info.plist */,
-			);
-			path = "Networking-watch";
-			sourceTree = "<group>";
-		};
-		0EDBC88922DCBE07006DB79E /* Networking-tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				0EDBC88A22DCBE07006DB79E /* Networking_tvOS.h */,
-				0EDBC88B22DCBE07006DB79E /* Info.plist */,
-			);
-			path = "Networking-tvOS";
-			sourceTree = "<group>";
-		};
 		870E00E422859065004A5931 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,11 +307,8 @@
 		874C03C4227B093500AF0F0F = {
 			isa = PBXGroup;
 			children = (
-				874C03D0227B093500AF0F0F /* Networking */,
+				874C03D0227B093500AF0F0F /* Sources */,
 				870E01B92286015E004A5931 /* NetworkingTests */,
-				0EDBC85722DCBC0C006DB79E /* NetworkingMac */,
-				0EDBC87022DCBDE1006DB79E /* Networking-watch */,
-				0EDBC88922DCBE07006DB79E /* Networking-tvOS */,
 				874C03CF227B093500AF0F0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -364,7 +325,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		874C03D0227B093500AF0F0F /* Networking */ = {
+		874C03D0227B093500AF0F0F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				870E00E52285906B004A5931 /* Webservice */,
@@ -373,7 +334,7 @@
 				874C03D1227B093500AF0F0F /* Networking.h */,
 				874C03D2227B093500AF0F0F /* Info.plist */,
 			);
-			path = Networking;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		87904ADD22859046005F80E6 /* Extensions */ = {
@@ -394,7 +355,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDBC85A22DCBC0C006DB79E /* NetworkingMac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +362,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDBC87322DCBDE1006DB79E /* Networking_watch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +369,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDBC88C22DCBE07006DB79E /* Networking_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
