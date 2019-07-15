@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EDBC85A22DCBC0C006DB79E /* NetworkingMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
+		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
+		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
+		0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01D02286165C004A5931 /* HTTP.swift */; };
+		0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift */; };
+		0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01002285B1B6004A5931 /* EmptyDecoder.swift */; };
+		0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
+		0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00FD2285ADCB004A5931 /* Empty.swift */; };
+		0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
+		0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
+		0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
+		0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
 		870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
 		870E00EF22859E61004A5931 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
 		870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
@@ -44,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EDBC85622DCBC0C006DB79E /* NetworkingMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingMac.h; sourceTree = "<group>"; };
+		0EDBC85922DCBC0C006DB79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -74,6 +90,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0EDBC85322DCBC0C006DB79E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B52286015D004A5931 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EDBC85722DCBC0C006DB79E /* NetworkingMac */ = {
+			isa = PBXGroup;
+			children = (
+				0EDBC85822DCBC0C006DB79E /* NetworkingMac.h */,
+				0EDBC85922DCBC0C006DB79E /* Info.plist */,
+			);
+			path = NetworkingMac;
+			sourceTree = "<group>";
+		};
 		870E00E422859065004A5931 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +281,7 @@
 			children = (
 				874C03D0227B093500AF0F0F /* Networking */,
 				870E01B92286015E004A5931 /* NetworkingTests */,
+				0EDBC85722DCBC0C006DB79E /* NetworkingMac */,
 				874C03CF227B093500AF0F0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -258,6 +291,7 @@
 			children = (
 				874C03CE227B093500AF0F0F /* Networking.framework */,
 				870E01B82286015D004A5931 /* NetworkingTests.xctest */,
+				0EDBC85622DCBC0C006DB79E /* NetworkingMac.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +322,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0EDBC85122DCBC0C006DB79E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDBC85A22DCBC0C006DB79E /* NetworkingMac.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		874C03C9227B093500AF0F0F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +341,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0EDBC85522DCBC0C006DB79E /* NetworkingMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EDBC85D22DCBC0C006DB79E /* Build configuration list for PBXNativeTarget "NetworkingMac" */;
+			buildPhases = (
+				0EDBC85122DCBC0C006DB79E /* Headers */,
+				0EDBC85222DCBC0C006DB79E /* Sources */,
+				0EDBC85322DCBC0C006DB79E /* Frameworks */,
+				0EDBC85422DCBC0C006DB79E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetworkingMac;
+			productName = NetworkingMac;
+			productReference = 0EDBC85622DCBC0C006DB79E /* NetworkingMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		870E01B72286015D004A5931 /* NetworkingTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 870E01C02286015E004A5931 /* Build configuration list for PBXNativeTarget "NetworkingTests" */;
@@ -346,6 +406,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Karmarama;
 				TargetAttributes = {
+					0EDBC85522DCBC0C006DB79E = {
+						CreatedOnToolsVersion = 10.2;
+					};
 					870E01B72286015D004A5931 = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -369,11 +432,19 @@
 			targets = (
 				874C03CD227B093500AF0F0F /* Networking */,
 				870E01B72286015D004A5931 /* NetworkingTests */,
+				0EDBC85522DCBC0C006DB79E /* NetworkingMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0EDBC85422DCBC0C006DB79E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B62286015D004A5931 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,6 +483,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0EDBC85222DCBC0C006DB79E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */,
+				0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */,
+				0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */,
+				0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */,
+				0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */,
+				0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */,
+				0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */,
+				0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */,
+				0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */,
+				0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B42286015D004A5931 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +549,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0EDBC85B22DCBC0C006DB79E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = NetworkingMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0EDBC85C22DCBC0C006DB79E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = NetworkingMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		870E01C12286015E004A5931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -685,6 +831,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EDBC85D22DCBC0C006DB79E /* Build configuration list for PBXNativeTarget "NetworkingMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EDBC85B22DCBC0C006DB79E /* Debug */,
+				0EDBC85C22DCBC0C006DB79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		870E01C02286015E004A5931 /* Build configuration list for PBXNativeTarget "NetworkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
