@@ -28,7 +28,6 @@ extension URLRequest {
         guard let url = components.url else {
             throw Error.malformedResource
         }
-        print ("request url: \(url) ")
         self = URLRequest(url: url)
 
         if let body = resource.body {
