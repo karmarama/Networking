@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
-               BuildableName = "Networking_mac.framework"
+               BuildableName = "Networking.framework"
                BlueprintName = "Networking-mac"
                ReferencedContainer = "container:Networking.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
-            BuildableName = "Networking_mac.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-mac"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
-            BuildableName = "Networking_mac.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-mac"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>

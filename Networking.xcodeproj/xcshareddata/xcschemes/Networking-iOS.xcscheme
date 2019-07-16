@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "874C03CD227B093500AF0F0F"
-               BuildableName = "Networking_iOS.framework"
+               BuildableName = "Networking.framework"
                BlueprintName = "Networking-iOS"
                ReferencedContainer = "container:Networking.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874C03CD227B093500AF0F0F"
-            BuildableName = "Networking_iOS.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874C03CD227B093500AF0F0F"
-            BuildableName = "Networking_iOS.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874C03CD227B093500AF0F0F"
-            BuildableName = "Networking_iOS.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874C03CD227B093500AF0F0F"
-            BuildableName = "Networking_iOS.framework"
+            BuildableName = "Networking.framework"
             BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
