@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E04789822DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
+		0E04789922DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
+		0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
+		0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -80,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E04789722DF8333003864D9 /* FormContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentType.swift; sourceTree = "<group>"; };
 		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +160,7 @@
 		870E00E422859065004A5931 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0E04789722DF8333003864D9 /* FormContentType.swift */,
 				870E00FF2285B1A9004A5931 /* Decoders */,
 				870E00EE22859E61004A5931 /* Resource.swift */,
 				870E00FD2285ADCB004A5931 /* Empty.swift */,
@@ -590,6 +596,7 @@
 				0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */,
+				0E04789922DF8333003864D9 /* FormContentType.swift in Sources */,
 				0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */,
 				0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */,
 				0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */,
@@ -609,6 +616,7 @@
 				0EDBC87722DCBDEE006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */,
+				0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */,
 				0EDBC87A22DCBDEE006DB79E /* HTTP.swift in Sources */,
 				0EDBC87B22DCBDEE006DB79E /* Webservice.swift in Sources */,
 				0EDBC87C22DCBDEE006DB79E /* EmptyDecoder.swift in Sources */,
@@ -628,6 +636,7 @@
 				0EDBC89022DCBE14006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */,
+				0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */,
 				0EDBC89322DCBE14006DB79E /* HTTP.swift in Sources */,
 				0EDBC89422DCBE14006DB79E /* Webservice.swift in Sources */,
 				0EDBC89522DCBE14006DB79E /* EmptyDecoder.swift in Sources */,
@@ -664,6 +673,7 @@
 				870E01D12286165C004A5931 /* HTTP.swift in Sources */,
 				870E00F72285A676004A5931 /* URLRequest+Extension.swift in Sources */,
 				870E00F32285A591004A5931 /* Webservice.swift in Sources */,
+				0E04789822DF8333003864D9 /* FormContentType.swift in Sources */,
 				870E00F52285A618004A5931 /* URLSession+Extension.swift in Sources */,
 				870E00EF22859E61004A5931 /* Resource.swift in Sources */,
 				870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */,
