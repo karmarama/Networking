@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
+               BlueprintIdentifier = "874C03CD227B093500AF0F0F"
                BuildableName = "Networking.framework"
-               BlueprintName = "Networking-mac"
+               BlueprintName = "Networking-iOS"
                ReferencedContainer = "container:Networking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,11 +26,39 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "874C03CD227B093500AF0F0F"
+            BuildableName = "Networking.framework"
+            BlueprintName = "Networking-iOS"
+            ReferencedContainer = "container:Networking.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "874C03CD227B093500AF0F0F"
+            BuildableName = "Networking.framework"
+            BlueprintName = "Networking-iOS"
+            ReferencedContainer = "container:Networking.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "870E01B72286015D004A5931"
+               BuildableName = "NetworkingTests.xctest"
+               BlueprintName = "NetworkingTests"
+               ReferencedContainer = "container:Networking.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -45,14 +73,12 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
+            BlueprintIdentifier = "874C03CD227B093500AF0F0F"
             BuildableName = "Networking.framework"
-            BlueprintName = "Networking-mac"
+            BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -63,9 +89,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0EDBC85522DCBC0C006DB79E"
+            BlueprintIdentifier = "874C03CD227B093500AF0F0F"
             BuildableName = "Networking.framework"
-            BlueprintName = "Networking-mac"
+            BlueprintName = "Networking-iOS"
             ReferencedContainer = "container:Networking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
