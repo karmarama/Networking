@@ -11,6 +11,12 @@
 		0E04789922DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
+		0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
+		0ED22F3E22E0827D000564B3 /* FormEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */; };
+		0ED22F4322E0B412000564B3 /* MirrorFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */; };
+		0ED22F4422E0B413000564B3 /* MirrorFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */; };
+		0ED22F4522E0B414000564B3 /* MirrorFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */; };
+		0ED22F4622E0B414000564B3 /* MirrorFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */; };
 		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -85,6 +91,9 @@
 
 /* Begin PBXFileReference section */
 		0E04789722DF8333003864D9 /* FormContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentType.swift; sourceTree = "<group>"; };
+		0ED22F3B22E078D6000564B3 /* FormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoder.swift; sourceTree = "<group>"; };
+		0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoderTests.swift; sourceTree = "<group>"; };
+		0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorFormEncoder.swift; sourceTree = "<group>"; };
 		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,9 +170,11 @@
 			isa = PBXGroup;
 			children = (
 				0E04789722DF8333003864D9 /* FormContentType.swift */,
+				0ED22F3B22E078D6000564B3 /* FormEncoder.swift */,
 				870E00FF2285B1A9004A5931 /* Decoders */,
 				870E00EE22859E61004A5931 /* Resource.swift */,
 				870E00FD2285ADCB004A5931 /* Empty.swift */,
+				0ED22F4122E0B3AC000564B3 /* MirrorFormEncoder.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -229,6 +240,7 @@
 				870E01CA2286137A004A5931 /* HTTP */,
 				870E01C422860178004A5931 /* Requests */,
 				870E01D722887653004A5931 /* WebserviceTests.swift */,
+				0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -606,6 +618,7 @@
 				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */,
+				0ED22F4422E0B413000564B3 /* MirrorFormEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +639,7 @@
 				0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */,
+				0ED22F4522E0B414000564B3 /* MirrorFormEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +660,7 @@
 				0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */,
+				0ED22F4622E0B414000564B3 /* MirrorFormEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +674,7 @@
 				870E01C622860187004A5931 /* HeaderProviderTests.swift in Sources */,
 				870E01E222887BE7004A5931 /* RequestBehaviorMock.swift in Sources */,
 				870E01D622861D8D004A5931 /* HTTPURLResponseTests.swift in Sources */,
+				0ED22F3E22E0827D000564B3 /* FormEncoderTests.swift in Sources */,
 				870E01DC22887693004A5931 /* URLSessionDataTaskLoaderFake.swift in Sources */,
 				870E01D4228617D5004A5931 /* ResourceTests.swift in Sources */,
 				870E01CC22861386004A5931 /* HTTPBodyTests.swift in Sources */,
@@ -680,6 +696,8 @@
 				870E01AF2285C5C9004A5931 /* RequestBehavior.swift in Sources */,
 				870E00FE2285ADCB004A5931 /* Empty.swift in Sources */,
 				870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */,
+				0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */,
+				0ED22F4322E0B412000564B3 /* MirrorFormEncoder.swift in Sources */,
 				870E01012285B1B6004A5931 /* EmptyDecoder.swift in Sources */,
 				870E00FA2285A789004A5931 /* ContentType.swift in Sources */,
 				870E01B12285E13D004A5931 /* HeaderProvider.swift in Sources */,

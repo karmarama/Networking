@@ -10,9 +10,10 @@ struct FormContentType: ContentType {
     }
 
     var decoder: ContentTypeDecoder {
-        return FormDecoder()
+        return JSONDecoder()
     }
 }
+/*
 
 class FormEncoder: ContentTypeEncoder {
     func encode<T>(_ value: T) throws -> Data where T: Encodable {
@@ -60,3 +61,4 @@ extension Array where Element == String {
     }
 }
 
+*/
