@@ -25,12 +25,8 @@ final class RequestBehaviorMock: RequestBehavior {
         return (data, response, error)
     }
 
-    func after(completion response: URLResponse?) {
-        callOrder.append("\(#function)")
-    }
-
-    func after(failure: Error?) {
-        callOrder.append("\(#function)")
+    func after(completion result: Result<HTTPURLResponse, Error>) {
+         callOrder.append("\(#function)")
     }
 
 }

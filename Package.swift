@@ -9,7 +9,7 @@ let package = Package(
     targets: [
         .target(
             name: "Networking",
-            path: "Networking"
+            path: "Sources"
         ),
         .testTarget(
             name: "NetworkingTests",

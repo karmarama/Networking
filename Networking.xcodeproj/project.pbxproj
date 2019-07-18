@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
+		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
+		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
+		0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01D02286165C004A5931 /* HTTP.swift */; };
+		0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift */; };
+		0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01002285B1B6004A5931 /* EmptyDecoder.swift */; };
+		0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
+		0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00FD2285ADCB004A5931 /* Empty.swift */; };
+		0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
+		0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
+		0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
+		0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
+		0EDBC87722DCBDEE006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
+		0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
+		0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
+		0EDBC87A22DCBDEE006DB79E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01D02286165C004A5931 /* HTTP.swift */; };
+		0EDBC87B22DCBDEE006DB79E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift */; };
+		0EDBC87C22DCBDEE006DB79E /* EmptyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01002285B1B6004A5931 /* EmptyDecoder.swift */; };
+		0EDBC87D22DCBDEE006DB79E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
+		0EDBC87E22DCBDEE006DB79E /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00FD2285ADCB004A5931 /* Empty.swift */; };
+		0EDBC87F22DCBDEE006DB79E /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
+		0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
+		0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
+		0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
+		0EDBC89022DCBE14006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
+		0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
+		0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
+		0EDBC89322DCBE14006DB79E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01D02286165C004A5931 /* HTTP.swift */; };
+		0EDBC89422DCBE14006DB79E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F22285A591004A5931 /* Webservice.swift */; };
+		0EDBC89522DCBE14006DB79E /* EmptyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01002285B1B6004A5931 /* EmptyDecoder.swift */; };
+		0EDBC89622DCBE14006DB79E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
+		0EDBC89722DCBE14006DB79E /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00FD2285ADCB004A5931 /* Empty.swift */; };
+		0EDBC89822DCBE14006DB79E /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
+		0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
+		0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
+		0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
 		870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
 		870E00EF22859E61004A5931 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
 		870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
@@ -44,6 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -74,6 +113,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0EDBC85322DCBC0C006DB79E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC86C22DCBDE0006DB79E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC88522DCBE07006DB79E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B52286015D004A5931 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,7 +307,7 @@
 		874C03C4227B093500AF0F0F = {
 			isa = PBXGroup;
 			children = (
-				874C03D0227B093500AF0F0F /* Networking */,
+				874C03D0227B093500AF0F0F /* Sources */,
 				870E01B92286015E004A5931 /* NetworkingTests */,
 				874C03CF227B093500AF0F0F /* Products */,
 			);
@@ -258,11 +318,14 @@
 			children = (
 				874C03CE227B093500AF0F0F /* Networking.framework */,
 				870E01B82286015D004A5931 /* NetworkingTests.xctest */,
+				0EDBC85622DCBC0C006DB79E /* Networking.framework */,
+				0EDBC86F22DCBDE0006DB79E /* Networking.framework */,
+				0EDBC88822DCBE07006DB79E /* Networking.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		874C03D0227B093500AF0F0F /* Networking */ = {
+		874C03D0227B093500AF0F0F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				870E00E52285906B004A5931 /* Webservice */,
@@ -271,7 +334,7 @@
 				874C03D1227B093500AF0F0F /* Networking.h */,
 				874C03D2227B093500AF0F0F /* Info.plist */,
 			);
-			path = Networking;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		87904ADD22859046005F80E6 /* Extensions */ = {
@@ -288,6 +351,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0EDBC85122DCBC0C006DB79E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC86A22DCBDE0006DB79E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC88322DCBE07006DB79E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		874C03C9227B093500AF0F0F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +383,60 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0EDBC85522DCBC0C006DB79E /* Networking-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EDBC85D22DCBC0C006DB79E /* Build configuration list for PBXNativeTarget "Networking-mac" */;
+			buildPhases = (
+				0EDBC85122DCBC0C006DB79E /* Headers */,
+				0EDBC85222DCBC0C006DB79E /* Sources */,
+				0EDBC85322DCBC0C006DB79E /* Frameworks */,
+				0EDBC85422DCBC0C006DB79E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Networking-mac";
+			productName = NetworkingMac;
+			productReference = 0EDBC85622DCBC0C006DB79E /* Networking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0EDBC86E22DCBDE0006DB79E /* Networking-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EDBC87422DCBDE1006DB79E /* Build configuration list for PBXNativeTarget "Networking-watch" */;
+			buildPhases = (
+				0EDBC86A22DCBDE0006DB79E /* Headers */,
+				0EDBC86B22DCBDE0006DB79E /* Sources */,
+				0EDBC86C22DCBDE0006DB79E /* Frameworks */,
+				0EDBC86D22DCBDE0006DB79E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Networking-watch";
+			productName = "Networking-watch";
+			productReference = 0EDBC86F22DCBDE0006DB79E /* Networking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0EDBC88722DCBE07006DB79E /* Networking-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EDBC88D22DCBE07006DB79E /* Build configuration list for PBXNativeTarget "Networking-tvOS" */;
+			buildPhases = (
+				0EDBC88322DCBE07006DB79E /* Headers */,
+				0EDBC88422DCBE07006DB79E /* Sources */,
+				0EDBC88522DCBE07006DB79E /* Frameworks */,
+				0EDBC88622DCBE07006DB79E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Networking-tvOS";
+			productName = "Networking-tvOS";
+			productReference = 0EDBC88822DCBE07006DB79E /* Networking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		870E01B72286015D004A5931 /* NetworkingTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 870E01C02286015E004A5931 /* Build configuration list for PBXNativeTarget "NetworkingTests" */;
@@ -317,9 +455,9 @@
 			productReference = 870E01B82286015D004A5931 /* NetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		874C03CD227B093500AF0F0F /* Networking */ = {
+		874C03CD227B093500AF0F0F /* Networking-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 874C03D6227B093500AF0F0F /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildConfigurationList = 874C03D6227B093500AF0F0F /* Build configuration list for PBXNativeTarget "Networking-iOS" */;
 			buildPhases = (
 				874C03C9227B093500AF0F0F /* Headers */,
 				874C03CA227B093500AF0F0F /* Sources */,
@@ -331,7 +469,7 @@
 			);
 			dependencies = (
 			);
-			name = Networking;
+			name = "Networking-iOS";
 			productName = Networking;
 			productReference = 874C03CE227B093500AF0F0F /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -346,6 +484,15 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Karmarama;
 				TargetAttributes = {
+					0EDBC85522DCBC0C006DB79E = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					0EDBC86E22DCBDE0006DB79E = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					0EDBC88722DCBE07006DB79E = {
+						CreatedOnToolsVersion = 10.2;
+					};
 					870E01B72286015D004A5931 = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -367,13 +514,37 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				874C03CD227B093500AF0F0F /* Networking */,
+				874C03CD227B093500AF0F0F /* Networking-iOS */,
 				870E01B72286015D004A5931 /* NetworkingTests */,
+				0EDBC85522DCBC0C006DB79E /* Networking-mac */,
+				0EDBC86E22DCBDE0006DB79E /* Networking-watch */,
+				0EDBC88722DCBE07006DB79E /* Networking-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0EDBC85422DCBC0C006DB79E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC86D22DCBDE0006DB79E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC88622DCBE07006DB79E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B62286015D004A5931 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,6 +583,63 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0EDBC85222DCBC0C006DB79E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */,
+				0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */,
+				0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */,
+				0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */,
+				0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */,
+				0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */,
+				0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */,
+				0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */,
+				0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */,
+				0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC86B22DCBDE0006DB79E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDBC87722DCBDEE006DB79E /* RequestBehavior.swift in Sources */,
+				0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */,
+				0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */,
+				0EDBC87A22DCBDEE006DB79E /* HTTP.swift in Sources */,
+				0EDBC87B22DCBDEE006DB79E /* Webservice.swift in Sources */,
+				0EDBC87C22DCBDEE006DB79E /* EmptyDecoder.swift in Sources */,
+				0EDBC87D22DCBDEE006DB79E /* Resource.swift in Sources */,
+				0EDBC87E22DCBDEE006DB79E /* Empty.swift in Sources */,
+				0EDBC87F22DCBDEE006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */,
+				0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDBC88422DCBE07006DB79E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDBC89022DCBE14006DB79E /* RequestBehavior.swift in Sources */,
+				0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */,
+				0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */,
+				0EDBC89322DCBE14006DB79E /* HTTP.swift in Sources */,
+				0EDBC89422DCBE14006DB79E /* Webservice.swift in Sources */,
+				0EDBC89522DCBE14006DB79E /* EmptyDecoder.swift in Sources */,
+				0EDBC89622DCBE14006DB79E /* Resource.swift in Sources */,
+				0EDBC89722DCBE14006DB79E /* Empty.swift in Sources */,
+				0EDBC89822DCBE14006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */,
+				0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		870E01B42286015D004A5931 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,12 +681,178 @@
 /* Begin PBXTargetDependency section */
 		870E01BF2286015E004A5931 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874C03CD227B093500AF0F0F /* Networking */;
+			target = 874C03CD227B093500AF0F0F /* Networking-iOS */;
 			targetProxy = 870E01BE2286015E004A5931 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0EDBC85B22DCBC0C006DB79E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
+				PRODUCT_NAME = Networking;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0EDBC85C22DCBC0C006DB79E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = agency.nice.NetworkingMac;
+				PRODUCT_NAME = Networking;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0EDBC87522DCBDE1006DB79E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-watch";
+				PRODUCT_NAME = Networking;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		0EDBC87622DCBDE1006DB79E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-watch";
+				PRODUCT_NAME = Networking;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		0EDBC88E22DCBE07006DB79E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-tvOS";
+				PRODUCT_NAME = Networking;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		0EDBC88F22DCBE07006DB79E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6PR9BVQYVX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "agency.nice.Networking-tvOS";
+				PRODUCT_NAME = Networking;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
 		870E01C12286015E004A5931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -641,7 +1035,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,7 +1043,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.karmarama.Networking;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -667,7 +1061,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,7 +1069,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.karmarama.Networking;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Networking;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -685,6 +1079,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EDBC85D22DCBC0C006DB79E /* Build configuration list for PBXNativeTarget "Networking-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EDBC85B22DCBC0C006DB79E /* Debug */,
+				0EDBC85C22DCBC0C006DB79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EDBC87422DCBDE1006DB79E /* Build configuration list for PBXNativeTarget "Networking-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EDBC87522DCBDE1006DB79E /* Debug */,
+				0EDBC87622DCBDE1006DB79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EDBC88D22DCBE07006DB79E /* Build configuration list for PBXNativeTarget "Networking-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EDBC88E22DCBE07006DB79E /* Debug */,
+				0EDBC88F22DCBE07006DB79E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		870E01C02286015E004A5931 /* Build configuration list for PBXNativeTarget "NetworkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -703,7 +1124,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		874C03D6227B093500AF0F0F /* Build configuration list for PBXNativeTarget "Networking" */ = {
+		874C03D6227B093500AF0F0F /* Build configuration list for PBXNativeTarget "Networking-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				874C03D7227B093500AF0F0F /* Debug */,
