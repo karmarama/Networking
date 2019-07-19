@@ -14,8 +14,31 @@ public protocol ContentTypeDecoder {
     func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T
 }
 
+public enum CharSet {
+    case utf8
+    case iso88591
+    case custom(String)
+
+    var stringValue: String {
+        switch self {
+        case .utf8:
+            return "\"UTF-8\""
+        case .iso88591:
+            return "\"ISO-8859-1\""
+        case .custom(let value):
+            return "\"\(value)\""
+        }
+    }
+}
+
 public struct JSONContentType: ContentType {
+
+    private let charSet: CharSet?
     public var header: HTTP.Header {
+
+        if let charSet = charSet {
+            return ("Content-Type", "application/json; charset=\(charSet.stringValue)")
+        }
         return ("Content-Type", "application/json")
     }
 
@@ -27,7 +50,9 @@ public struct JSONContentType: ContentType {
         return JSONDecoder()
     }
 
-    public init() {}
+    public init( charSet: CharSet? = nil ) {
+        self.charSet = charSet
+    }
 }
 
 extension JSONEncoder: ContentTypeEncoder {}
