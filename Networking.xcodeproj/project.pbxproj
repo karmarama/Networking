@@ -11,6 +11,9 @@
 		0E04789922DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
+		0E2888D422E5EB21009702BC /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
+		0E2888D522E5EB22009702BC /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
+		0E2888D622E5EB22009702BC /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
 		0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
 		0ED22F3E22E0827D000564B3 /* FormEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */; };
 		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
@@ -609,6 +612,7 @@
 				0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */,
 				0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */,
 				0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0E2888D422E5EB21009702BC /* FormEncoder.swift in Sources */,
 				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */,
@@ -629,6 +633,7 @@
 				0EDBC87D22DCBDEE006DB79E /* Resource.swift in Sources */,
 				0EDBC87E22DCBDEE006DB79E /* Empty.swift in Sources */,
 				0EDBC87F22DCBDEE006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0E2888D522E5EB22009702BC /* FormEncoder.swift in Sources */,
 				0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */,
@@ -649,6 +654,7 @@
 				0EDBC89622DCBE14006DB79E /* Resource.swift in Sources */,
 				0EDBC89722DCBE14006DB79E /* Empty.swift in Sources */,
 				0EDBC89822DCBE14006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
+				0E2888D622E5EB22009702BC /* FormEncoder.swift in Sources */,
 				0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */,
