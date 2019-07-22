@@ -1,6 +1,9 @@
 import Foundation
 
 public struct FormContentType: ContentType {
+
+    public init() {}
+
     public  var header: HTTP.Header {
         return ("Content-Type", "application/x-www-form-urlencoded")
     }
