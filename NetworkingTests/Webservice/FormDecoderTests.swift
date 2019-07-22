@@ -28,24 +28,4 @@ final class FormDecoderTests: XCTestCase {
         }
     }
 
-//    func testNestedDecoding() {
-//
-//        let iPhone = Product(name: "iPhone X", price: Price(pounds: 4, dollars: 12), info: "Our best iPhone yet!")
-//
-//        let formEncoder = FormEncoder()
-//        do {
-//            let formData = try formEncoder.encode(iPhone)
-//            let formString = (String(data: formData, encoding: .utf8)!)
-//            print(formString)
-//            let decoder = FormDecoder(formString)
-//            let decodedProducts = try Product.init(from: decoder)
-//            print (decodedProducts)
-//        } catch {
-//            print("Encoding failed: \(error)")
-//            XCTFail("failed to encode")
-//        }
-//print("boo")
-//
-//    }
-
 }
