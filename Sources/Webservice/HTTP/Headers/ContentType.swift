@@ -2,8 +2,8 @@ import Foundation
 
 public protocol ContentType {
     var header: HTTP.Header { get }
-    var encoder: ContentTypeEncoder { get }
-    var decoder: ContentTypeDecoder { get }
+    var encoder: ContentTypeEncoder? { get }
+    var decoder: ContentTypeDecoder? { get }
 }
 
 public protocol ContentTypeEncoder {
@@ -42,11 +42,11 @@ public struct JSONContentType: ContentType {
         return ("Content-Type", "application/json")
     }
 
-    public var encoder: ContentTypeEncoder {
+    public var encoder: ContentTypeEncoder? {
         return JSONEncoder()
     }
 
-    public var decoder: ContentTypeDecoder {
+    public var decoder: ContentTypeDecoder? {
         return JSONDecoder()
     }
 

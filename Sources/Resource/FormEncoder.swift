@@ -28,17 +28,6 @@ public class FormEncoder: ContentTypeEncoder {
 private struct FormEncoding: Encoder {
 
     //stores data during encoding
-    fileprivate final class FormData {
-        private(set) var strings: [String: String] = [:]
-
-        func encode(key codingKey: [CodingKey], value: String) throws {
-            guard !codingKey.isEmpty else { throw FormEncoder.Error.missingKeyForValue }
-            let keys = codingKey.map { $0.stringValue }
-            let bracketedKeys = keys.dropFirst().map { "[\($0)]" }.joined()
-            let key = keys[0].appending(bracketedKeys)
-            strings[key] = value
-        }
-    }
 
     fileprivate var data: FormData
 
@@ -71,9 +60,9 @@ private struct FormEncoding: Encoder {
 
 private struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
 
-    private let data: FormEncoding.FormData
+    private let data: FormData
 
-    init(to data: FormEncoding.FormData) {
+    init(to data: FormData) {
         self.data = data
     }
 
@@ -174,9 +163,9 @@ private struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol
 private struct FormUnkeyedEncoding: UnkeyedEncodingContainer {
     var count: Int = 0
 
-    private let data: FormEncoding.FormData
+    private let data: FormData
 
-    init(to data: FormEncoding.FormData) {
+    init(to data: FormData) {
         self.data = data
     }
 
@@ -265,9 +254,9 @@ private struct FormUnkeyedEncoding: UnkeyedEncodingContainer {
 
 private struct FormSingleValueEncoding: SingleValueEncodingContainer {
 
-    private let data: FormEncoding.FormData
+    private let data: FormData
 
-    init(to data: FormEncoding.FormData) {
+    init(to data: FormData) {
         self.data = data
     }
 
@@ -338,11 +327,30 @@ private struct FormSingleValueEncoding: SingleValueEncodingContainer {
     }
 }
 
+final class FormData {
+    private(set) var strings: [String: String] = [:]
+
+    func encode(key codingKey: [CodingKey], value: String) throws {
+        guard !codingKey.isEmpty else { throw FormEncoder.Error.missingKeyForValue }
+        let keys = codingKey.map { $0.stringValue }
+        let bracketedKeys = keys.dropFirst().map { "[\($0)]" }.joined()
+        let key = keys[0].appending(bracketedKeys)
+        strings[key] = value
+    }
+}
+
 extension String {
     func escaped() -> String {
         let plussesReplaced = self.replacingOccurrences(of: "+", with: "%2B")
         let ampersandsReplaced = plussesReplaced.replacingOccurrences(of: "&", with: "%26")
         let spacesReplaced = ampersandsReplaced.replacingOccurrences(of: " ", with: "+")
         return spacesReplaced.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    }
+
+    func unescaped() -> String {
+     let putBackSpaces = self.replacingOccurrences(of: "+", with: " ")
+     let putBackAmpersannds = putBackSpaces.replacingOccurrences(of: "%26", with: "&")
+     let putBackPlusses = putBackAmpersannds.replacingOccurrences(of: "%2B", with: "+")
+     return putBackPlusses.removingPercentEncoding ?? putBackPlusses
     }
 }
