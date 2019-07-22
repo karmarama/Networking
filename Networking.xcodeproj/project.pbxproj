@@ -11,14 +11,8 @@
 		0E04789922DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
 		0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E04789722DF8333003864D9 /* FormContentType.swift */; };
-		0E9BA59122E1BE700026BF89 /* FormDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BA59022E1BE700026BF89 /* FormDecoderTests.swift */; };
-		0EB3815C22E20D7100C7CA3F /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB3815B22E20D7100C7CA3F /* KeyPath.swift */; };
 		0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormEncoder.swift */; };
 		0ED22F3E22E0827D000564B3 /* FormEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */; };
-		0ED22F4822E0BF87000564B3 /* FormDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4722E0BF87000564B3 /* FormDecoder.swift */; };
-		0ED22F4922E0BF87000564B3 /* FormDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4722E0BF87000564B3 /* FormDecoder.swift */; };
-		0ED22F4A22E0BF87000564B3 /* FormDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4722E0BF87000564B3 /* FormDecoder.swift */; };
-		0ED22F4B22E0BF87000564B3 /* FormDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F4722E0BF87000564B3 /* FormDecoder.swift */; };
 		0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01AE2285C5C9004A5931 /* RequestBehavior.swift */; };
 		0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01B02285E13D004A5931 /* HeaderProvider.swift */; };
 		0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F92285A789004A5931 /* ContentType.swift */; };
@@ -93,11 +87,8 @@
 
 /* Begin PBXFileReference section */
 		0E04789722DF8333003864D9 /* FormContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentType.swift; sourceTree = "<group>"; };
-		0E9BA59022E1BE700026BF89 /* FormDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDecoderTests.swift; sourceTree = "<group>"; };
-		0EB3815B22E20D7100C7CA3F /* KeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
 		0ED22F3B22E078D6000564B3 /* FormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoder.swift; sourceTree = "<group>"; };
 		0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoderTests.swift; sourceTree = "<group>"; };
-		0ED22F4722E0BF87000564B3 /* FormDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDecoder.swift; sourceTree = "<group>"; };
 		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,21 +161,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EB3815A22E20BB300C7CA3F /* KeyPath */ = {
-			isa = PBXGroup;
-			children = (
-				0EB3815B22E20D7100C7CA3F /* KeyPath.swift */,
-			);
-			path = KeyPath;
-			sourceTree = "<group>";
-		};
 		870E00E422859065004A5931 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				0EB3815A22E20BB300C7CA3F /* KeyPath */,
 				0E04789722DF8333003864D9 /* FormContentType.swift */,
 				0ED22F3B22E078D6000564B3 /* FormEncoder.swift */,
-				0ED22F4722E0BF87000564B3 /* FormDecoder.swift */,
 				870E00FF2285B1A9004A5931 /* Decoders */,
 				870E00EE22859E61004A5931 /* Resource.swift */,
 				870E00FD2285ADCB004A5931 /* Empty.swift */,
@@ -254,7 +235,6 @@
 				870E01C422860178004A5931 /* Requests */,
 				870E01D722887653004A5931 /* WebserviceTests.swift */,
 				0ED22F3D22E0827D000564B3 /* FormEncoderTests.swift */,
-				0E9BA59022E1BE700026BF89 /* FormDecoderTests.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -619,7 +599,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED22F4922E0BF87000564B3 /* FormDecoder.swift in Sources */,
 				0EDBC85E22DCBC25006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */,
@@ -640,7 +619,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED22F4A22E0BF87000564B3 /* FormDecoder.swift in Sources */,
 				0EDBC87722DCBDEE006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */,
@@ -661,7 +639,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED22F4B22E0BF87000564B3 /* FormDecoder.swift in Sources */,
 				0EDBC89022DCBE14006DB79E /* RequestBehavior.swift in Sources */,
 				0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */,
@@ -684,7 +661,6 @@
 			files = (
 				870E01F6228AFBB4004A5931 /* JSONDecoderTests.swift in Sources */,
 				870E01D822887653004A5931 /* WebserviceTests.swift in Sources */,
-				0E9BA59122E1BE700026BF89 /* FormDecoderTests.swift in Sources */,
 				870E01DF22887749004A5931 /* URL+Extension.swift in Sources */,
 				870E01C622860187004A5931 /* HeaderProviderTests.swift in Sources */,
 				870E01E222887BE7004A5931 /* RequestBehaviorMock.swift in Sources */,
@@ -707,14 +683,12 @@
 				0E04789822DF8333003864D9 /* FormContentType.swift in Sources */,
 				870E00F52285A618004A5931 /* URLSession+Extension.swift in Sources */,
 				870E00EF22859E61004A5931 /* Resource.swift in Sources */,
-				0ED22F4822E0BF87000564B3 /* FormDecoder.swift in Sources */,
 				870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */,
 				870E01AF2285C5C9004A5931 /* RequestBehavior.swift in Sources */,
 				870E00FE2285ADCB004A5931 /* Empty.swift in Sources */,
 				870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */,
 				0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */,
 				870E01012285B1B6004A5931 /* EmptyDecoder.swift in Sources */,
-				0EB3815C22E20D7100C7CA3F /* KeyPath.swift in Sources */,
 				870E00FA2285A789004A5931 /* ContentType.swift in Sources */,
 				870E01B12285E13D004A5931 /* HeaderProvider.swift in Sources */,
 			);
