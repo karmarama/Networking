@@ -96,171 +96,59 @@ final class FormEncoderTests: XCTestCase {
     }
 
     func testSingleStringEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode("Test")
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+         XCTAssertThrowsError( try FormEncoder().stringEncode("Test"))
     }
 
     func testSingleBoolEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(true)
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+          XCTAssertThrowsError( try FormEncoder().stringEncode(true))
     }
 
     func testSingleDoubleEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Double(1.0))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+          XCTAssertThrowsError( try FormEncoder().stringEncode(Double(1.0)))
     }
 
     func testSingleFloatEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Float(1.0))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+         XCTAssertThrowsError( try FormEncoder().stringEncode(Float(1.0)))
     }
 
     func testSingleIntEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Int(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+           XCTAssertThrowsError( try FormEncoder().stringEncode(Int(1)))
     }
 
     func testSingleUIntEncoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(UInt(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError( try FormEncoder().stringEncode(UInt(1)))
     }
 
     func testSingleUInt8Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(UInt8(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+     XCTAssertThrowsError( try  FormEncoder().stringEncode(UInt8(1)))
     }
 
     func testSingleUInt16Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(UInt16(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+      XCTAssertThrowsError( try FormEncoder().stringEncode(UInt16(1)))
     }
 
     func testSingleInt16Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Int16(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError( try FormEncoder().stringEncode(Int16(1)))
     }
 
     func testSingleInt8Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Int8(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+         XCTAssertThrowsError(try FormEncoder().stringEncode(Int8(1)))
     }
 
     func testSingleInt32Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Int32(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError( try FormEncoder().stringEncode(Int32(1)))
     }
 
     func testSingleInt64Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(Int64(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+      XCTAssertThrowsError(try FormEncoder().stringEncode(Int64(1)))
     }
 
     func testSingleUInt32Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(UInt32(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError( try FormEncoder().stringEncode(UInt32(1)))
     }
 
     func testSingleUInt64Encoding() {
-        let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(UInt64(1))
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError( try FormEncoder().stringEncode(UInt64(1)))
     }
 
     func testUnkeyeyedArrayCustomTypeEncoding() {
@@ -271,13 +159,6 @@ final class FormEncoderTests: XCTestCase {
         let products =  [ iPhone, macBook, watch]
 
         let formEncoder = FormEncoder()
-        do {
-            let formString = try formEncoder.stringEncode(products)
-            print(formString)
-        } catch FormEncoder.Error.unsupportedDataFormat {
-            print("test passed")
-        } catch {
-            XCTFail("wrong error")
-        }
+        XCTAssertThrowsError(try formEncoder.stringEncode(products))
     }
 }
