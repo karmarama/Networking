@@ -1,5 +1,3 @@
-//// Created by Nice Agency
-
 import Foundation
 
 extension String {

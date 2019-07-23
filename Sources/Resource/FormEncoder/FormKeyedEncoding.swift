@@ -1,5 +1,3 @@
-//// Created by Nice Agency
-
 import Foundation
 
 struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
