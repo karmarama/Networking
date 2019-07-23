@@ -88,7 +88,7 @@ final class FormEncoderTests: XCTestCase {
         do {
         let formString = try FormEncoder().stringEncode(types)
         XCTAssertEqual(formString,
-                       "bool=true&double=1.0&int16=4&int32=5&int64=6&int8=3&int=2&uInt16=9&uInt32=10&uInt64=11&uInt8=8&uInt=7")
+                       "bool=true&double=1.0&int=2&int16=4&int32=5&int64=6&int8=3&uInt=7&uInt16=9&uInt32=10&uInt64=11&uInt8=8")
         } catch {
             XCTFail("failed to encode")
         }

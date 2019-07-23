@@ -22,6 +22,9 @@ public class FormEncoder: ContentTypeEncoder {
     }
 
     private func formFormat(from strings: [String: String]) -> String {
-       return strings.map { "\($0.formEncode())=\($1.formEncode())" }.sorted().joined(separator: "&")
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = strings.map { URLQueryItem(name: $0.formEncoded(), value: $1.formEncoded()) }
+            .sorted { $0.name < $1.name }
+        return urlComponents.query ?? ""
     }
 }
