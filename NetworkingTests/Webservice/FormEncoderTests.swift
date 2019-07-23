@@ -1,6 +1,5 @@
 import XCTest
 @testable import Networking
-//swiftlint:disable type_body_length
 final class FormEncoderTests: XCTestCase {
 
     struct LotsOfTypes: Codable {
