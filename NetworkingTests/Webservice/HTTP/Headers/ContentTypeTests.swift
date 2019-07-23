@@ -11,19 +11,19 @@ final class ContentTypeTests: XCTestCase {
     func testJSONContentTypeHeaderutf8() {
         let contentType = JSONContentType(charSet: .utf8)
         XCTAssertEqual(contentType.header.0, "Content-Type")
-        XCTAssertEqual(contentType.header.1, "application/json; charset=\"UTF-8\"")
+        XCTAssertEqual(contentType.header.1, "application/json; charset=UTF-8")
     }
 
     func testJSONContentTypeHeaderiso88591() {
         let contentType = JSONContentType(charSet: .iso88591)
         XCTAssertEqual(contentType.header.0, "Content-Type")
-        XCTAssertEqual(contentType.header.1, "application/json; charset=\"ISO-8859-1\"")
+        XCTAssertEqual(contentType.header.1, "application/json; charset=ISO-8859-1")
     }
 
     func testJSONContentTypeHeaderCustom() {
         let contentType = JSONContentType(charSet: .custom("CUSTOM"))
         XCTAssertEqual(contentType.header.0, "Content-Type")
-        XCTAssertEqual(contentType.header.1, "application/json; charset=\"CUSTOM\"")
+        XCTAssertEqual(contentType.header.1, "application/json; charset=CUSTOM")
     }
 
     func testJSONContentTypeEncoder() {
