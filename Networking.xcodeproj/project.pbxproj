@@ -52,6 +52,30 @@
 		0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
 		0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F42285A618004A5931 /* URLSession+Extension.swift */; };
 		0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F62285A676004A5931 /* URLRequest+Extension.swift */; };
+		0EE2CAE722E70B90004976AF /* FormSingleValueEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */; };
+		0EE2CAE822E70B90004976AF /* FormSingleValueEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */; };
+		0EE2CAE922E70B90004976AF /* FormSingleValueEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */; };
+		0EE2CAEA22E70B90004976AF /* FormSingleValueEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */; };
+		0EE2CAEC22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */; };
+		0EE2CAED22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */; };
+		0EE2CAEE22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */; };
+		0EE2CAEF22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */; };
+		0EE2CAF122E70CB2004976AF /* FormKeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */; };
+		0EE2CAF222E70CB2004976AF /* FormKeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */; };
+		0EE2CAF322E70CB2004976AF /* FormKeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */; };
+		0EE2CAF422E70CB2004976AF /* FormKeyedEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */; };
+		0EE2CAF622E70CDC004976AF /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF522E70CDC004976AF /* FormData.swift */; };
+		0EE2CAF722E70CDC004976AF /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF522E70CDC004976AF /* FormData.swift */; };
+		0EE2CAF822E70CDC004976AF /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF522E70CDC004976AF /* FormData.swift */; };
+		0EE2CAF922E70CDC004976AF /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAF522E70CDC004976AF /* FormData.swift */; };
+		0EE2CAFB22E70D3D004976AF /* FormEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */; };
+		0EE2CAFC22E70D3D004976AF /* FormEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */; };
+		0EE2CAFD22E70D3D004976AF /* FormEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */; };
+		0EE2CAFE22E70D3D004976AF /* FormEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */; };
+		0EE2CB0022E70D6E004976AF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFF22E70D6E004976AF /* String+Extension.swift */; };
+		0EE2CB0122E70D6E004976AF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFF22E70D6E004976AF /* String+Extension.swift */; };
+		0EE2CB0222E70D6E004976AF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFF22E70D6E004976AF /* String+Extension.swift */; };
+		0EE2CB0322E70D6E004976AF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2CAFF22E70D6E004976AF /* String+Extension.swift */; };
 		870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */; };
 		870E00EF22859E61004A5931 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00EE22859E61004A5931 /* Resource.swift */; };
 		870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */; };
@@ -95,6 +119,12 @@
 		0EDBC85622DCBC0C006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC86F22DCBDE0006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDBC88822DCBE07006DB79E /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSingleValueEncoding.swift; sourceTree = "<group>"; };
+		0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUnkeyedEncoding.swift; sourceTree = "<group>"; };
+		0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormKeyedEncoding.swift; sourceTree = "<group>"; };
+		0EE2CAF522E70CDC004976AF /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
+		0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoding.swift; sourceTree = "<group>"; };
+		0EE2CAFF22E70D6E004976AF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		870E00EC228590CE004A5931 /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
 		870E00EE22859E61004A5931 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		870E00F022859F17004A5931 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -164,11 +194,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EE2CAE522E70B73004976AF /* FormEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				0ED22F3B22E078D6000564B3 /* FormEncoder.swift */,
+				0EE2CAFF22E70D6E004976AF /* String+Extension.swift */,
+				0EE2CAFA22E70D3D004976AF /* FormEncoding.swift */,
+				0EE2CAF522E70CDC004976AF /* FormData.swift */,
+				0EE2CAF022E70CB2004976AF /* FormKeyedEncoding.swift */,
+				0EE2CAE622E70B90004976AF /* FormSingleValueEncoding.swift */,
+				0EE2CAEB22E70C44004976AF /* FormUnkeyedEncoding.swift */,
+			);
+			path = FormEncoder;
+			sourceTree = "<group>";
+		};
 		870E00E422859065004A5931 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				0E04789722DF8333003864D9 /* FormContentType.swift */,
-				0ED22F3B22E078D6000564B3 /* FormEncoder.swift */,
+				0EE2CAE522E70B73004976AF /* FormEncoder */,
 				870E00FF2285B1A9004A5931 /* Decoders */,
 				870E00EE22859E61004A5931 /* Resource.swift */,
 				870E00FD2285ADCB004A5931 /* Empty.swift */,
@@ -606,14 +650,20 @@
 				0EDBC85F22DCBC25006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC86022DCBC25006DB79E /* ContentType.swift in Sources */,
 				0E04789922DF8333003864D9 /* FormContentType.swift in Sources */,
+				0EE2CAED22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */,
 				0EDBC86122DCBC25006DB79E /* HTTP.swift in Sources */,
+				0EE2CAF222E70CB2004976AF /* FormKeyedEncoding.swift in Sources */,
 				0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */,
+				0EE2CB0122E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */,
 				0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */,
 				0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */,
+				0EE2CAF722E70CDC004976AF /* FormData.swift in Sources */,
 				0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D422E5EB21009702BC /* FormEncoder.swift in Sources */,
 				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EE2CAFC22E70D3D004976AF /* FormEncoding.swift in Sources */,
+				0EE2CAE822E70B90004976AF /* FormSingleValueEncoding.swift in Sources */,
 				0EDBC86822DCBC25006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC86922DCBC25006DB79E /* URLRequest+Extension.swift in Sources */,
 			);
@@ -627,14 +677,20 @@
 				0EDBC87822DCBDEE006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC87922DCBDEE006DB79E /* ContentType.swift in Sources */,
 				0E04789A22DF8333003864D9 /* FormContentType.swift in Sources */,
+				0EE2CAEE22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */,
 				0EDBC87A22DCBDEE006DB79E /* HTTP.swift in Sources */,
+				0EE2CAF322E70CB2004976AF /* FormKeyedEncoding.swift in Sources */,
 				0EDBC87B22DCBDEE006DB79E /* Webservice.swift in Sources */,
+				0EE2CB0222E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC87C22DCBDEE006DB79E /* EmptyDecoder.swift in Sources */,
 				0EDBC87D22DCBDEE006DB79E /* Resource.swift in Sources */,
 				0EDBC87E22DCBDEE006DB79E /* Empty.swift in Sources */,
+				0EE2CAF822E70CDC004976AF /* FormData.swift in Sources */,
 				0EDBC87F22DCBDEE006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D522E5EB22009702BC /* FormEncoder.swift in Sources */,
 				0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EE2CAFD22E70D3D004976AF /* FormEncoding.swift in Sources */,
+				0EE2CAE922E70B90004976AF /* FormSingleValueEncoding.swift in Sources */,
 				0EDBC88122DCBDEE006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC88222DCBDEE006DB79E /* URLRequest+Extension.swift in Sources */,
 			);
@@ -648,14 +704,20 @@
 				0EDBC89122DCBE14006DB79E /* HeaderProvider.swift in Sources */,
 				0EDBC89222DCBE14006DB79E /* ContentType.swift in Sources */,
 				0E04789B22DF8333003864D9 /* FormContentType.swift in Sources */,
+				0EE2CAEF22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */,
 				0EDBC89322DCBE14006DB79E /* HTTP.swift in Sources */,
+				0EE2CAF422E70CB2004976AF /* FormKeyedEncoding.swift in Sources */,
 				0EDBC89422DCBE14006DB79E /* Webservice.swift in Sources */,
+				0EE2CB0322E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC89522DCBE14006DB79E /* EmptyDecoder.swift in Sources */,
 				0EDBC89622DCBE14006DB79E /* Resource.swift in Sources */,
 				0EDBC89722DCBE14006DB79E /* Empty.swift in Sources */,
+				0EE2CAF922E70CDC004976AF /* FormData.swift in Sources */,
 				0EDBC89822DCBE14006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D622E5EB22009702BC /* FormEncoder.swift in Sources */,
 				0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */,
+				0EE2CAFE22E70D3D004976AF /* FormEncoding.swift in Sources */,
+				0EE2CAEA22E70B90004976AF /* FormSingleValueEncoding.swift in Sources */,
 				0EDBC89A22DCBE14006DB79E /* URLSession+Extension.swift in Sources */,
 				0EDBC89B22DCBE14006DB79E /* URLRequest+Extension.swift in Sources */,
 			);
@@ -687,14 +749,20 @@
 				870E00F72285A676004A5931 /* URLRequest+Extension.swift in Sources */,
 				870E00F32285A591004A5931 /* Webservice.swift in Sources */,
 				0E04789822DF8333003864D9 /* FormContentType.swift in Sources */,
+				0EE2CAEC22E70C44004976AF /* FormUnkeyedEncoding.swift in Sources */,
 				870E00F52285A618004A5931 /* URLSession+Extension.swift in Sources */,
+				0EE2CAF122E70CB2004976AF /* FormKeyedEncoding.swift in Sources */,
 				870E00EF22859E61004A5931 /* Resource.swift in Sources */,
+				0EE2CB0022E70D6E004976AF /* String+Extension.swift in Sources */,
 				870E00ED228590CE004A5931 /* HTTPURLResponse+Extension.swift in Sources */,
 				870E01AF2285C5C9004A5931 /* RequestBehavior.swift in Sources */,
 				870E00FE2285ADCB004A5931 /* Empty.swift in Sources */,
+				0EE2CAF622E70CDC004976AF /* FormData.swift in Sources */,
 				870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */,
 				0ED22F3C22E078D6000564B3 /* FormEncoder.swift in Sources */,
 				870E01012285B1B6004A5931 /* EmptyDecoder.swift in Sources */,
+				0EE2CAFB22E70D3D004976AF /* FormEncoding.swift in Sources */,
+				0EE2CAE722E70B90004976AF /* FormSingleValueEncoding.swift in Sources */,
 				870E00FA2285A789004A5931 /* ContentType.swift in Sources */,
 				870E01B12285E13D004A5931 /* HeaderProvider.swift in Sources */,
 			);
