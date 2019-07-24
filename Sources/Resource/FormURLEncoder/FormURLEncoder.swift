@@ -9,9 +9,7 @@ public class FormURLEncoder: ContentTypeEncoder {
         case unsupportedDataFormat
     }
     public func encode<T>(_ value: T) throws -> Data where T: Encodable {
-        guard let stringData = try stringEncode(value).data(using: .utf8) else { throw Error.formEncodingError }
-
-        return stringData
+        return try Data(stringEncode(value).utf8)
     }
 
     // returns a Form encoded representation of value
@@ -25,6 +23,6 @@ public class FormURLEncoder: ContentTypeEncoder {
         var urlComponents = URLComponents()
         urlComponents.queryItems = strings.map { URLQueryItem(name: $0.formEncoded(), value: $1.formEncoded()) }
             .sorted { $0.name < $1.name }
-        return urlComponents.query ?? ""
+        return urlComponents.queryString
     }
 }

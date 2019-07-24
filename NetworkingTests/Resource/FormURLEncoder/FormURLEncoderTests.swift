@@ -1,46 +1,26 @@
 import XCTest
 @testable import Networking
+
 final class FormURLEncoderTests: XCTestCase {
-
-    struct LotsOfTypes: Codable {
-        let canBeNil: String?
-        let bool: Bool
-        let double: Double
-        let int: Int
-        let int8: Int8
-        let int16: Int16
-        let int32: Int32
-        let int64: Int64
-        let uInt: UInt
-        let uInt8: UInt8
-        let uInt16: UInt16
-        let uInt32: UInt32
-        let uInt64: UInt64
-    }
-
-    struct Product: Codable {
-        var name: String
-        var price: Float
-        var info: String
-    }
-
-    struct Address: Codable {
-        var street: String
-        var city: String
-        var state: String
-    }
-
-    struct Store: Codable {
-        var name: String
-        var address: Address // nested struct
-        var products: [String: Product] // array
-    }
 
     func testSimpleEncoding() throws {
         let iPhone = Product(name: "iPhone X", price: 1_000, info: "Our best iPhone yet!")
         let formEncoder = FormURLEncoder()
         let formString = try formEncoder.stringEncode(iPhone)
         XCTAssertEqual(formString, "info=Our+best+iPhone+yet!&name=iPhone+X&price=1000.0")
+    }
+
+    func testSingleValueEncodableEncoding() {
+        let iPhone = Product(name: "iPhone X", price: 1_000, info: "Our best iPhone yet!")
+        let encodable = CustomEncodable(product: iPhone)
+        let formEncoder = FormURLEncoder()
+        XCTAssertThrowsError( try formEncoder.stringEncode(encodable))
+    }
+
+    func testSingleValueNilEncoding() {
+        let encodable = CustomEncodable(product: nil)
+        let formEncoder = FormURLEncoder()
+        XCTAssertThrowsError( try formEncoder.stringEncode(encodable))
     }
 
     func testSimpleEncodingData() throws {
@@ -50,6 +30,13 @@ final class FormURLEncoderTests: XCTestCase {
         let formStringData = formString.data(using: .utf8)!
         let formData = try formEncoder.encode(iPhone)
         XCTAssertEqual(formData, formStringData)
+    }
+
+    func testEncodeNilForKeyedValue() throws {
+        let product = Product(name: "test", price: 29, info: nil)
+        let formEncoder = FormURLEncoder()
+        let formString = try formEncoder.stringEncode(product)
+        XCTAssertEqual(formString, "info=null&name=test&price=29.0")
     }
 
     func testNestedEncoding() throws {
@@ -66,6 +53,25 @@ mac%5Binfo%5D=Early+2019&mac%5Bname%5D=Mac+Book+Pro&mac%5Bprice%5D=2000.0&phone%
 &phone%5Bname%5D=iPhone+X&phone%5Bprice%5D=1000.0&watch%5Binfo%5D=Series+4&watch%5Bname%5D=Apple+Watch
 &watch%5Bprice%5D=500.0
 """.replacingOccurrences(of: "\n", with: ""))
+    }
+
+    func testKeyedContainerWithNestedUnkeyedContainer() {
+        let prod1 = Product(name: "iPhone", price: 2.0, info: "xxx")
+        let prod2 = Product(name: "mac", price: 3.0, info: nil)
+        let store = UnkeyedStore(name: "test", products: [prod1, prod2])
+        XCTAssertThrowsError(try FormURLEncoder().encode(store))
+    }
+
+    func testKeyedContainerWithNestedUnkeyedNilContainer() {
+        let store = UnkeyedStore(name: "test", products: nil)
+        XCTAssertThrowsError(try FormURLEncoder().encode(store))
+    }
+
+    func testKeyedContainerWithNestedkeyedContainer() throws {
+        let prod1 = Product(name: "iPhone", price: 2.0, info: "xxx")
+        let store = KeyedStore(name: "test", product: prod1 )
+        let formString = try FormURLEncoder().stringEncode(store)
+        XCTAssertEqual(formString, "name=test&product%5Binfo%5D=xxx&product%5Bname%5D=iPhone&product%5Bprice%5D=2.0")
     }
 
     func testTypesEncoding() throws {
@@ -156,5 +162,27 @@ bool=true&double=1.0&int=2&int16=4&int32=5&int64=6&int8=3&uInt=7&uInt16=9&uInt32
 
         let formEncoder = FormURLEncoder()
         XCTAssertThrowsError(try formEncoder.stringEncode(products))
+    }
+
+    func testUnkeyedContainerWithUnKeyedNestedContainer() {
+        let stuff1 =  ["one", "two"]
+        let stuff2 =  ["three", "four"]
+        let things = UnKeyedThings(things: [stuff1, stuff2])
+        let formEncoder = FormURLEncoder()
+        XCTAssertThrowsError(try formEncoder.stringEncode(things))
+    }
+
+    func testUnkeyedContainerWitKeyedNestedContainer() throws {
+        //Note - this test only encodes last value in Array - unkeyed arrays supported by form data. 
+        let iPhone = Product(name: "iPhone X", price: 1_000, info: "Our best iPhone yet!")
+        let macBook = Product(name: "Mac Book Pro", price: 2_000, info: "Early 2019")
+        let watch = Product(name: "Apple Watch", price: 500, info: "Series 4")
+
+        let products =  [ iPhone, macBook, watch]
+
+        let things = KeyedThings(products: products)
+        let formEncoder = FormURLEncoder()
+        let formString = try formEncoder.stringEncode(things)
+        XCTAssertEqual(formString, "name=Apple+Watch&price=500.0" )
     }
 }
