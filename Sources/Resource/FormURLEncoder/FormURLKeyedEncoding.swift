@@ -1,10 +1,10 @@
 import Foundation
 
-struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
+struct FormURLKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
 
-    private let data: FormData
+    private let data: FormURLData
 
-    init(to data: FormData) {
+    init(to data: FormURLData) {
         self.data = data
     }
 
@@ -71,7 +71,7 @@ struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
     }
 
     mutating func encode<T: Encodable>(_ value: T, forKey key: Key) throws {
-        var formEncoding = FormEncoding(to: data)
+        var formEncoding = FormURLEncoding(to: data)
         formEncoding.codingPath.append(key)
         try value.encode(to: formEncoding)
     }
@@ -79,13 +79,13 @@ struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
     mutating func nestedContainer<NestedKey: CodingKey>(
         keyedBy keyType: NestedKey.Type,
         forKey key: Key) -> KeyedEncodingContainer<NestedKey> {
-        var container = FormKeyedEncoding<NestedKey>(to: data)
+        var container = FormURLKeyedEncoding<NestedKey>(to: data)
         container.codingPath = codingPath + [key]
         return KeyedEncodingContainer(container)
     }
 
     mutating func nestedUnkeyedContainer(forKey key: Key) -> UnkeyedEncodingContainer {
-        var container = FormUnkeyedEncoding(to: data)
+        var container = FormURLUnkeyedEncoding(to: data)
         container.codingPath = codingPath + [key]
         return container
     }
@@ -96,7 +96,7 @@ struct FormKeyedEncoding<Key: CodingKey>: KeyedEncodingContainerProtocol {
     }
 
     mutating func superEncoder(forKey key: Key) -> Encoder {
-        var formEncoding = FormEncoding(to: data)
+        var formEncoding = FormURLEncoding(to: data)
         formEncoding.codingPath = codingPath + [key]
         return formEncoding
     }

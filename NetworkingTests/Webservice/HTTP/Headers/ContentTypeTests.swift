@@ -37,18 +37,18 @@ final class ContentTypeTests: XCTestCase {
     }
 
     func testFormContentTypeHeader() {
-        let contentType = FormContentType()
+        let contentType = FormURLEncodedContentType()
         XCTAssertEqual(contentType.header.0, "Content-Type")
         XCTAssertEqual(contentType.header.1, "application/x-www-form-urlencoded")
     }
 
     func testFormContentTypeEncoder() {
-        let contentType = FormContentType()
-        XCTAssertTrue(contentType.encoder.self is FormEncoder)
+        let contentType = FormURLEncodedContentType()
+        XCTAssertTrue(contentType.encoder.self is FormURLEncoder)
     }
 
     func testFormContentTypeDecoder() {
-        let contentType = FormContentType()
+        let contentType = FormURLEncodedContentType()
         XCTAssertNil(contentType.decoder)
     }
 }

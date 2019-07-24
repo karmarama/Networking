@@ -1,12 +1,12 @@
 import Foundation
 
-struct FormEncoding: Encoder {
+struct FormURLEncoding: Encoder {
 
     //stores data during encoding
 
-    var data: FormData
+    var data: FormURLData
 
-    init(to encodedData: FormData = FormData()) {
+    init(to encodedData: FormURLData = FormURLData()) {
         self.data = encodedData
     }
 
@@ -15,19 +15,19 @@ struct FormEncoding: Encoder {
     let userInfo: [CodingUserInfoKey: Any] = [:]
 
     func container<Key: CodingKey>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> {
-        var container = FormKeyedEncoding<Key>(to: data)
+        var container = FormURLKeyedEncoding<Key>(to: data)
         container.codingPath = codingPath
         return KeyedEncodingContainer(container)
     }
 
     func unkeyedContainer() -> UnkeyedEncodingContainer {
-        var container = FormUnkeyedEncoding(to: data)
+        var container = FormURLUnkeyedEncoding(to: data)
         container.codingPath = codingPath
         return container
     }
 
     func singleValueContainer() -> SingleValueEncodingContainer {
-        var container = FormSingleValueEncoding(to: data)
+        var container = FormURLSingleValueEncoding(to: data)
         container.codingPath = codingPath
         return container
     }

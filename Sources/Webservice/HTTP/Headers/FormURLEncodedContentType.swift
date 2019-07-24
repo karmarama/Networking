@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FormContentType: ContentType {
+public struct FormURLEncodedContentType: ContentType {
 
     public init() {}
 
@@ -9,7 +9,7 @@ public struct FormContentType: ContentType {
     }
 
     public var encoder: ContentTypeEncoder? {
-        return FormEncoder()
+        return FormURLEncoder()
     }
 
     public var decoder: ContentTypeDecoder? {
