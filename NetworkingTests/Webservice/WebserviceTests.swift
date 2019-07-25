@@ -184,4 +184,45 @@ final class WebserviceTests: XCTestCase {
 
         waitForExpectations(timeout: 0.1, handler: nil)
     }
+
+    struct CancelRequestBehavior: RequestBehavior {
+
+        func allowCompletion(data: Data?, response: URLResponse?, error: Error?) -> Bool {
+            return false
+        }
+    }
+
+    func testCancelledBehavior() {
+
+        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
+                                                       response: HTTPURLResponse(url: URL.fake(),
+                                                                                 statusCode: 200,
+                                                                                 httpVersion: nil,
+                                                                                 headerFields: nil),
+                                                       error: nil)
+
+        webservice = Webservice(baseURL: URL.fake(),
+                                session: sessionMock,
+                                defaultRequestBehavior: CancelRequestBehavior())
+
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: EmptyDecoder())
+
+        webservice.load(resource) { result in
+            switch result {
+            case .failure(let error):
+                if let error = error as? Webservice.Error {
+                    switch error {
+                    case .cancelled:
+                        break
+                    default:
+                        XCTFail("wrong error returned")
+                    }
+                } else {
+                    XCTFail("wrong error returned")
+                }
+            case .success:
+                XCTFail("should return an error")
+            }
+        }
+    }
 }
