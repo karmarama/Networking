@@ -173,7 +173,7 @@ bool=true&double=1.0&int=2&int16=4&int32=5&int64=6&int8=3&uInt=7&uInt16=9&uInt32
     }
 
     func testUnkeyedContainerWitKeyedNestedContainer() throws {
-        //Note - this test only encodes last value in Array - unkeyed arrays supported by form data. 
+        //Note - this test only encodes last value in Array - unkeyed arrays unsupported by form data.
         let iPhone = Product(name: "iPhone X", price: 1_000, info: "Our best iPhone yet!")
         let macBook = Product(name: "Mac Book Pro", price: 2_000, info: "Early 2019")
         let watch = Product(name: "Apple Watch", price: 500, info: "Series 4")
@@ -184,5 +184,25 @@ bool=true&double=1.0&int=2&int16=4&int32=5&int64=6&int8=3&uInt=7&uInt16=9&uInt32
         let formEncoder = FormURLEncoder()
         let formString = try formEncoder.stringEncode(things)
         XCTAssertEqual(formString, "name=Apple+Watch&price=500.0" )
+    }
+
+    func testKeyedSuperEncoder() throws {
+        let subProduct = SubProduct(name: "subproduct", price: 9.99, info: "test", extraField: "extra")
+        let formEncoder = FormURLEncoder()
+        let formString = try formEncoder.stringEncode(subProduct)
+        XCTAssertEqual(formString,
+                       "extraField=extra&super%5Binfo%5D=test&super%5Bname%5D=subproduct&super%5Bprice%5D=9.99")
+    }
+
+    func testUnkeyedSuperEncoder() {
+
+        let subProduct1 = SubProduct(name: "hamster", price: 33.3, info: "furry", extraField: "extra")
+        let subProduct2 = SubProduct(name: "gerbil", price: 27, info: "squeaky", extraField: "extra")
+
+        let subProducts = SubProducts( subProducts: [subProduct1, subProduct2])
+
+        let formEncoder = FormURLEncoder()
+        XCTAssertThrowsError(try formEncoder.stringEncode(subProducts))
+
     }
 }

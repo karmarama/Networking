@@ -15,19 +15,23 @@ struct CustomEncodable: Encodable {
     }
 }
 
-struct Product {
+class Product: Encodable {
     var name: String
     var price: Float
     var info: String?
+
+    init(name: String, price: Float, info: String?) {
+        self.name = name
+        self.price = price
+        self.info = info
+    }
 
     enum CodingKeys: String, CodingKey {
         case name
         case price
         case info
     }
-}
 
-extension Product: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
@@ -40,9 +44,14 @@ extension Product: Encodable {
     }
 }
 
-struct UnkeyedStore: Encodable {
+class UnkeyedStore: Encodable {
     var name: String
     var products: [Product]?
+
+    init(name: String, products: [Product]?) {
+        self.name = name
+        self.products = products
+    }
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -128,5 +137,49 @@ struct KeyedThings: Encodable {
             try nestedKeyedContainer.encode(product.name, forKey: .name)
             try nestedKeyedContainer.encode(product.price, forKey: .price)
         }
+    }
+}
+
+class SubProduct: Product {
+    let extraField: String
+
+    init(name: String, price: Float, info: String?, extraField: String) {
+        self.extraField = extraField
+        super.init(name: name, price: price, info: info)
+    }
+
+    enum SubCodingKeys: String, CodingKey {
+        case extraField
+        case `super`
+    }
+
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: SubCodingKeys.self)
+        try container.encode(extraField, forKey: .extraField)
+
+        let superEncoder = container.superEncoder()
+        var productContainer = superEncoder.container(keyedBy: CodingKeys.self)
+        try productContainer.encode(name, forKey: .name)
+        try productContainer.encode(price, forKey: .price)
+        if let info = info {
+            try productContainer.encode(info, forKey: .info)
+        } else {
+            try productContainer.encodeNil(forKey: .info)
+        }
+    }
+}
+
+struct SubProducts: Encodable {
+    let subProducts: [SubProduct]
+
+    enum CodingKeys: String, CodingKey {
+        case subProduct
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        let superEncoder = container.superEncoder()
+        var superContainer = superEncoder.unkeyedContainer()
+        try superContainer.encode (subProducts)
     }
 }
