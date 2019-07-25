@@ -1,6 +1,10 @@
 import Foundation
 
 public struct HTTP {
+
+    enum Error: Swift.Error {
+        case noEncoder
+    }
     public typealias Header = (String, String)
     public typealias StatusCode = Int
 
@@ -14,7 +18,10 @@ public struct HTTP {
         }
 
         public func encoded() throws -> Data {
-            return try contentType.encoder.encode(data)
+            guard let encoder = contentType.encoder else {
+                throw Error.noEncoder
+            }
+            return try encoder.encode(data)
         }
     }
 

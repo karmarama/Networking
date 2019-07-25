@@ -2,8 +2,8 @@ import Foundation
 
 public protocol ContentType {
     var header: HTTP.Header { get }
-    var encoder: ContentTypeEncoder { get }
-    var decoder: ContentTypeDecoder { get }
+    var encoder: ContentTypeEncoder? { get }
+    var decoder: ContentTypeDecoder? { get }
 }
 
 public protocol ContentTypeEncoder {
@@ -15,19 +15,44 @@ public protocol ContentTypeDecoder {
 }
 
 public struct JSONContentType: ContentType {
+
+    public enum CharSet {
+        case utf8
+        case iso88591
+        case custom(String)
+
+        var stringValue: String {
+            switch self {
+            case .utf8:
+                return "UTF-8"
+            case .iso88591:
+                return "ISO-8859-1"
+            case .custom(let value):
+                return value
+            }
+        }
+    }
+
+    private let charSet: CharSet?
     public var header: HTTP.Header {
+
+        if let charSet = charSet {
+            return ("Content-Type", "application/json; charset=\(charSet.stringValue)")
+        }
         return ("Content-Type", "application/json")
     }
 
-    public var encoder: ContentTypeEncoder {
+    public var encoder: ContentTypeEncoder? {
         return JSONEncoder()
     }
 
-    public var decoder: ContentTypeDecoder {
+    public var decoder: ContentTypeDecoder? {
         return JSONDecoder()
     }
 
-    public init() {}
+    public init(charSet: CharSet? = nil) {
+        self.charSet = charSet
+    }
 }
 
 extension JSONEncoder: ContentTypeEncoder {}
