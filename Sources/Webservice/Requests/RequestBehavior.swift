@@ -77,6 +77,11 @@ private struct CompoundRequestBehavior: RequestBehavior {
     }
 
     func allowCompletion(data: Data?, response: URLResponse?, error: Error?) -> Bool {
-        return !behaviors.map { $0.allowCompletion(data: data, response: response, error: error) }.contains(false)
+        for behaviour in behaviors {
+            if !behaviour.allowCompletion(data: data, response: response, error: error) {
+                return false
+            }
+        }
+        return true
     }
 }

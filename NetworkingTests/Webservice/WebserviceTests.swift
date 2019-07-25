@@ -186,9 +186,21 @@ final class WebserviceTests: XCTestCase {
     }
 
     struct CancelRequestBehavior: RequestBehavior {
-
         func allowCompletion(data: Data?, response: URLResponse?, error: Error?) -> Bool {
             return false
+        }
+
+        func after(completion result: Result<HTTPURLResponse, Error>) {
+            switch result {
+            case .success:
+                XCTFail("should not get called")
+            case .failure(let error):
+                if case Webservice.Error.cancelled = error {
+                    print("request cancelled")
+                } else {
+                    XCTFail("incorrect error")
+                }
+            }
         }
     }
 
@@ -207,22 +219,9 @@ final class WebserviceTests: XCTestCase {
 
         let resource = Resource<Empty, Empty>(endpoint: "/", decoder: EmptyDecoder())
 
-        webservice.load(resource) { result in
-            switch result {
-            case .failure(let error):
-                if let error = error as? Webservice.Error {
-                    switch error {
-                    case .cancelled:
-                        break
-                    default:
-                        XCTFail("wrong error returned")
-                    }
-                } else {
-                    XCTFail("wrong error returned")
-                }
-            case .success:
-                XCTFail("should return an error")
-            }
+        webservice.load(resource) { _ in
+            XCTFail("completion should not get called")
         }
     }
 }
+

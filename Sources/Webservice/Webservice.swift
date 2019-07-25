@@ -45,7 +45,7 @@ public struct Webservice: ResourceRequestable {
             session.dataTask(with: request) { data, response, error in
 
                 guard requestBehavior.allowCompletion(data: data, response: response, error: error) else {
-                    completion(.failure(Error.cancelled))
+                    requestBehavior.after(completion: Result.failure(Error.cancelled))
                     return
                 }
 
