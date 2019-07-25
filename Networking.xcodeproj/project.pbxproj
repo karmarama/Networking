@@ -16,6 +16,9 @@
 		0E2888D422E5EB21009702BC /* FormURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormURLEncoder.swift */; };
 		0E2888D522E5EB22009702BC /* FormURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormURLEncoder.swift */; };
 		0E2888D622E5EB22009702BC /* FormURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormURLEncoder.swift */; };
+		0E4B7B7D22E9D76300C31705 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09A1CC22E896CD0054A7C2 /* URLComponents+Extension.swift */; };
+		0E4B7B7E22E9D76400C31705 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09A1CC22E896CD0054A7C2 /* URLComponents+Extension.swift */; };
+		0E4B7B7F22E9D76400C31705 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09A1CC22E896CD0054A7C2 /* URLComponents+Extension.swift */; };
 		0EB6345622E8AE6E008803FE /* CustomEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6345522E8AE6E008803FE /* CustomEncodable.swift */; };
 		0ED22F3C22E078D6000564B3 /* FormURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3B22E078D6000564B3 /* FormURLEncoder.swift */; };
 		0ED22F3E22E0827D000564B3 /* FormURLEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED22F3D22E0827D000564B3 /* FormURLEncoderTests.swift */; };
@@ -681,6 +684,7 @@
 				0EDBC86222DCBC25006DB79E /* Webservice.swift in Sources */,
 				0EE2CB0122E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC86322DCBC25006DB79E /* EmptyDecoder.swift in Sources */,
+				0E4B7B7D22E9D76300C31705 /* URLComponents+Extension.swift in Sources */,
 				0EDBC86422DCBC25006DB79E /* Resource.swift in Sources */,
 				0EDBC86522DCBC25006DB79E /* Empty.swift in Sources */,
 				0EE2CAF722E70CDC004976AF /* FormURLData.swift in Sources */,
@@ -708,6 +712,7 @@
 				0EDBC87B22DCBDEE006DB79E /* Webservice.swift in Sources */,
 				0EE2CB0222E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC87C22DCBDEE006DB79E /* EmptyDecoder.swift in Sources */,
+				0E4B7B7E22E9D76400C31705 /* URLComponents+Extension.swift in Sources */,
 				0EDBC87D22DCBDEE006DB79E /* Resource.swift in Sources */,
 				0EDBC87E22DCBDEE006DB79E /* Empty.swift in Sources */,
 				0EE2CAF822E70CDC004976AF /* FormURLData.swift in Sources */,
@@ -735,6 +740,7 @@
 				0EDBC89422DCBE14006DB79E /* Webservice.swift in Sources */,
 				0EE2CB0322E70D6E004976AF /* String+Extension.swift in Sources */,
 				0EDBC89522DCBE14006DB79E /* EmptyDecoder.swift in Sources */,
+				0E4B7B7F22E9D76400C31705 /* URLComponents+Extension.swift in Sources */,
 				0EDBC89622DCBE14006DB79E /* Resource.swift in Sources */,
 				0EDBC89722DCBE14006DB79E /* Empty.swift in Sources */,
 				0EE2CAF922E70CDC004976AF /* FormURLData.swift in Sources */,
