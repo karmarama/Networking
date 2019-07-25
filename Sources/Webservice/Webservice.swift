@@ -14,6 +14,7 @@ public struct Webservice: ResourceRequestable {
     public enum Error: Swift.Error {
         case http(HTTP.StatusCode, Swift.Error?)
         case unknown(Swift.Error?)
+        case cancelled
     }
 
     private let baseURL: URL
@@ -42,6 +43,12 @@ public struct Webservice: ResourceRequestable {
             requestBehavior.before(sending: request)
 
             session.dataTask(with: request) { data, response, error in
+
+                guard requestBehavior.allowCompletion(data: data, response: response, error: error) else {
+                    requestBehavior.after(completion: Result.failure(Error.cancelled))
+                    return
+                }
+
                 let (data, response, error) = requestBehavior.modifyResponse(data: data,
                                                                              response: response,
                                                                              error: error)
