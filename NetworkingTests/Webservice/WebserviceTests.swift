@@ -174,8 +174,8 @@ final class WebserviceTests: XCTestCase {
         webservice.load(resource) { result in
             guard case let .failure(error) = result,
                 let requestError = error as? URLRequest.Error else {
-                XCTFail("Expected a URLRequest error")
-                return
+                    XCTFail("Expected a URLRequest error")
+                    return
             }
 
             XCTAssertTrue(requestError == URLRequest.Error.malformedBaseURL)
@@ -191,7 +191,7 @@ final class WebserviceTests: XCTestCase {
         webservice = Webservice(baseURL: URL(fileURLWithPath: "/......."), session: sessionMock)
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
-                                              requestBehaviour: RequestBehaviorThreadValidator(),
+                                              requestBehavior: RequestBehaviorThreadValidator(),
                                               decoder: EmptyDecoder())
 
         let expectAsync = expectation(description: "async")

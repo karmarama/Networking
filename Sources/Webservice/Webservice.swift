@@ -37,7 +37,7 @@ public struct Webservice: ResourceRequestable {
          completion: @escaping (Result<Response, Swift.Error>) -> Void) {
 
         do {
-            let requestBehavior = defaultRequestBehavior.and(resource.requestBehaviour)
+            let requestBehavior = defaultRequestBehavior.and(resource.requestBehavior)
 
             let request = requestBehavior.modify(planned: try URLRequest(resource: resource,
                                                                          defaultRequestBehavior: defaultRequestBehavior,

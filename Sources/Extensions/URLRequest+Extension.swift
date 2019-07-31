@@ -22,7 +22,7 @@ extension URLRequest {
         }
 
         components = defaultRequestBehavior
-            .and(resource.requestBehaviour)
+            .and(resource.requestBehavior)
             .modify(urlComponents: components)
 
         guard let url = components.url else {
