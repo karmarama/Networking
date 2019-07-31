@@ -2,7 +2,7 @@ import XCTest
 @testable import Networking
 
 final class WebserviceTests: XCTestCase {
-    private var webservice: Webservice!
+    private var webservice: ResourceRequestable!
 
     func testEmptyDataTaskSuccess() {
         let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
@@ -183,5 +183,58 @@ final class WebserviceTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 0.1, handler: nil)
+    }
+
+    func testResponseOnMainThread() {
+        let sessionMock = URLSession.shared
+
+        webservice = Webservice(baseURL: URL(fileURLWithPath: "/......."), session: sessionMock)
+
+        let resource = Resource<Empty, Empty>(endpoint: "/",
+                                              requestBehaviour: RequestBehaviorThreadValidator(),
+                                              decoder: EmptyDecoder())
+
+        let expectAsync = expectation(description: "async")
+        let expectBackground = expectation(description: "background")
+
+        webservice.load(resource) { _ in
+            XCTAssertEqual(Thread.current, Thread.main)
+            expectAsync.fulfill()
+        }
+
+        DispatchQueue(label: "worker").async {
+            self.webservice.load(resource) { _ in
+                XCTAssertEqual(Thread.current, Thread.main)
+                expectBackground.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 0.1, handler: nil)
+    }
+}
+
+final class RequestBehaviorThreadValidator: RequestBehavior {
+    func modify(urlComponents: URLComponents) -> URLComponents {
+        // could be called on any thread based on call site, no validation
+        return urlComponents
+    }
+
+    func modify(planned request: URLRequest) -> URLRequest {
+        // could be called on any thread based on call site, no validation
+        return request
+    }
+
+    func before(sending request: URLRequest) {
+        XCTAssertEqual(Thread.current, Thread.main)
+    }
+
+    //swiftlint:disable:next large_tuple
+    func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?) {
+        XCTAssertNotEqual(Thread.current, Thread.main)
+        return (data, response, error)
+    }
+
+    func after(completion result: Result<HTTPURLResponse, Error>) {
+        XCTAssertEqual(Thread.current, Thread.main)
     }
 }

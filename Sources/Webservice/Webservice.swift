@@ -1,6 +1,10 @@
 import Foundation
 
 public protocol ResourceRequestable {
+    /// Load the resource
+    ///
+    /// - Parameters:
+    ///   - completion: Note: always called on the main thread
     func load<Request: Encodable, Response: Decodable>(_ resource: Resource<Request, Response>,
                                                        completion: @escaping (Result<Response, Error>) -> Void)
 }
@@ -39,7 +43,9 @@ public struct Webservice: ResourceRequestable {
                                                                          defaultRequestBehavior: defaultRequestBehavior,
                                                                          baseURL: baseURL))
 
-            requestBehavior.before(sending: request)
+            DispatchQueue.main.async {
+                requestBehavior.before(sending: request)
+            }
 
             session.dataTask(with: request) { data, response, error in
                 let (data, response, error) = requestBehavior.modifyResponse(data: data,
@@ -47,26 +53,37 @@ public struct Webservice: ResourceRequestable {
                                                                              error: error)
                 if let response = response as? HTTPURLResponse {
                     if response.isSuccessful {
-                        completion(Result { try resource.decoder.decode(Response.self,
-                                                                        from: data,
-                                                                        response: response)
-                        })
+                        let result = Result { try resource.decoder.decode(Response.self,
+                                                                          from: data,
+                                                                          response: response)
+                        }
 
-                        requestBehavior.after(completion: .success(response))
+                        DispatchQueue.main.async {
+                            completion(result)
+                            requestBehavior.after(completion: .success(response))
+                        }
 
                         // Early return to prevent calling after(completion:) RequestBehavior for failure
                         return
                     } else {
-                        completion(.failure(Error.http(response.statusCode, error)))
+                        DispatchQueue.main.async {
+                            completion(.failure(Error.http(response.statusCode, error)))
+                        }
                     }
                 } else {
-                    completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
+                    DispatchQueue.main.async {
+                        completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
+                    }
                 }
 
-                requestBehavior.after(completion: .failure(error ?? Error.unknown(error)))
+                DispatchQueue.main.async {
+                    requestBehavior.after(completion: .failure(error ?? Error.unknown(error)))
+                }
             }.resume()
         } catch {
-            completion(.failure(error))
+            DispatchQueue.main.async {
+                completion(.failure(error))
+            }
         }
     }
 }
