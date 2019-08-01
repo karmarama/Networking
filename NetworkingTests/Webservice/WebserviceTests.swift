@@ -187,11 +187,12 @@ final class WebserviceTests: XCTestCase {
 
     func testResponseOnMainThread() {
         let sessionMock = URLSession.shared
+        let validationBehavior = RequestBehaviorThreadValidator(queue: OperationQueue.main)
 
         webservice = Webservice(baseURL: URL(fileURLWithPath: "/......."), session: sessionMock)
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
-                                              requestBehavior: RequestBehaviorThreadValidator(),
+                                              requestBehavior: validationBehavior,
                                               decoder: EmptyDecoder())
 
         let expectAsync = expectation(description: "async")
@@ -211,30 +212,65 @@ final class WebserviceTests: XCTestCase {
 
         waitForExpectations(timeout: 0.1, handler: nil)
     }
+
+    func testResponseOnBackgroundThread() {
+        let sessionMock = URLSession.shared
+        let queue = OperationQueue()
+        let validationBehavior = RequestBehaviorThreadValidator(queue: queue)
+
+        webservice = Webservice(baseURL: URL(fileURLWithPath: "/......."), session: sessionMock)
+
+        let resource = Resource<Empty, Empty>(endpoint: "/",
+                                              requestBehavior: validationBehavior,
+                                              decoder: EmptyDecoder())
+
+        let expectAsync = expectation(description: "async")
+        let expectBackground = expectation(description: "background")
+
+        webservice.load(resource, queue: queue) { _ in
+            XCTAssertEqual(OperationQueue.current, queue)
+            expectAsync.fulfill()
+        }
+
+        DispatchQueue(label: "worker").async {
+            self.webservice.load(resource, queue: queue) { _ in
+                XCTAssertEqual(OperationQueue.current, queue)
+                expectBackground.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 0.1, handler: nil)
+    }
 }
 
 final class RequestBehaviorThreadValidator: RequestBehavior {
+    let queue: OperationQueue
+
+    init(queue: OperationQueue) {
+        self.queue = queue
+    }
+
     func modify(urlComponents: URLComponents) -> URLComponents {
-        // could be called on any thread based on call site, no validation
+        XCTAssertEqual(OperationQueue.current, queue)
         return urlComponents
     }
 
     func modify(planned request: URLRequest) -> URLRequest {
-        // could be called on any thread based on call site, no validation
+        XCTAssertEqual(OperationQueue.current, queue)
         return request
     }
 
     func before(sending request: URLRequest) {
-        XCTAssertEqual(Thread.current, Thread.main)
+        XCTAssertEqual(OperationQueue.current, queue)
     }
 
     //swiftlint:disable:next large_tuple
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?) {
-        XCTAssertNotEqual(Thread.current, Thread.main)
+        XCTAssertEqual(OperationQueue.current, queue)
         return (data, response, error)
     }
 
     func after(completion result: Result<HTTPURLResponse, Error>) {
-        XCTAssertEqual(Thread.current, Thread.main)
+        XCTAssertEqual(OperationQueue.current, queue)
     }
 }

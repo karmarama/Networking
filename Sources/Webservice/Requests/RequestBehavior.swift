@@ -1,16 +1,11 @@
 import Foundation
 
 public protocol RequestBehavior {
-    /*** Not thread safe */
     func modify(urlComponents: URLComponents) -> URLComponents
-    /*** Not thread safe */
     func modify(planned request: URLRequest) -> URLRequest
-    /*** Always called on the main thread */
     func before(sending request: URLRequest)
 
-    /*** Not thread safe */
     func modifyResponse(data: Data?, response: URLResponse?, error: Error?) -> (Data?, URLResponse?, Error?)
-    /*** Always called on the main thread */
     func after(completion result: Result<HTTPURLResponse, Error>)
 }
 

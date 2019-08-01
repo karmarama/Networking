@@ -7,7 +7,7 @@ extension URLRequest {
     }
 
     init<Request: Encodable, Response: Decodable>(resource: Resource<Request, Response>,
-                                                  defaultRequestBehavior: RequestBehavior,
+                                                  requestBehavior: RequestBehavior,
                                                   baseURL: URL) throws {
         guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else {
             throw Error.malformedBaseURL
@@ -21,7 +21,7 @@ extension URLRequest {
             components.queryItems = queryItems
         }
 
-        components = defaultRequestBehavior
+        components = requestBehavior
             .and(resource.requestBehavior)
             .modify(urlComponents: components)
 
