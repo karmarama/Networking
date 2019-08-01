@@ -10,7 +10,7 @@ extension ResourceRequestable {
     func load<Request: Encodable, Response: Decodable>(_ resource: Resource<Request, Response>,
                                                        completion: @escaping (Result<Response, Error>) -> Void) {
         load(resource,
-             queue: OperationQueue.main,
+             queue: .main,
              completion: completion)
     }
 }
@@ -60,22 +60,37 @@ public struct Webservice: ResourceRequestable {
                                                                                      error: error)
                         if let response = response as? HTTPURLResponse {
                             if response.isSuccessful {
-                                completion(Result { try resource.decoder.decode(Response.self,
-                                                                                from: data,
-                                                                                response: response)
-                                })
-                                requestBehavior.after(completion: .success(response))
+                                var decoder: ResourceDecoder
+                                var decodingQueue: DispatchQueue
 
-                                // Early return to prevent calling after(completion:) RequestBehavior for failure
-                                return
+                                switch resource.decoding {
+                                case let .background(resourceDecoder):
+                                    decoder = resourceDecoder
+                                    decodingQueue = .global(qos: .background)
+                                case let .qos(resourceDecoder, qos):
+                                    decoder = resourceDecoder
+                                    decodingQueue = .global(qos: qos)
+                                }
+
+                                decodingQueue.async {
+                                    let result = Result { try decoder.decode(Response.self,
+                                                                             from: data,
+                                                                             response: response)
+                                    }
+
+                                    queue.addOperation {
+                                        completion(result)
+                                        requestBehavior.after(completion: .success(response))
+                                    }
+                                }
                             } else {
                                 completion(.failure(Error.http(response.statusCode, error)))
+                                requestBehavior.after(completion: .failure(Error.http(response.statusCode, error)))
                             }
                         } else {
                             completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
+                            requestBehavior.after(completion: .failure(Error.unknown(error)))
                         }
-
-                        requestBehavior.after(completion: .failure(error ?? Error.unknown(error)))
                     }
                 }.resume()
             } catch {
