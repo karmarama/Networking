@@ -6,7 +6,7 @@ public protocol ResourceRequestable {
                                                        completion: @escaping (Result<Response, Error>) -> Void)
 }
 
-extension ResourceRequestable {
+public extension ResourceRequestable {
     func load<Request: Encodable, Response: Decodable>(_ resource: Resource<Request, Response>,
                                                        completion: @escaping (Result<Response, Error>) -> Void) {
         load(resource,
