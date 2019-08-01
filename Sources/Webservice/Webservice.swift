@@ -43,10 +43,10 @@ public struct Webservice: ResourceRequestable {
          queue: OperationQueue,
          completion: @escaping (Result<Response, Swift.Error>) -> Void) {
 
+        let requestBehavior = self.defaultRequestBehavior.and(resource.requestBehavior)
+
         queue.addOperation {
             do {
-                let requestBehavior = self.defaultRequestBehavior.and(resource.requestBehavior)
-
                 let request = requestBehavior.modify(planned: try URLRequest(resource: resource,
                                                                              requestBehavior: requestBehavior,
                                                                              baseURL: self.baseURL))
@@ -95,6 +95,7 @@ public struct Webservice: ResourceRequestable {
                 }.resume()
             } catch {
                 completion(.failure(error))
+                requestBehavior.after(completion: .failure(error))
             }
         }
     }
