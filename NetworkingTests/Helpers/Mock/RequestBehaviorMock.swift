@@ -28,5 +28,4 @@ final class RequestBehaviorMock: RequestBehavior {
     func after(completion result: Result<HTTPURLResponse, Error>) {
          callOrder.append("\(#function)")
     }
-
 }

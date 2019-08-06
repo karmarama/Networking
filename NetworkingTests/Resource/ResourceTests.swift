@@ -2,10 +2,12 @@ import XCTest
 @testable import Networking
 
 final class ResourceTests: XCTestCase {
+    private let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
+
     func testURLRequestFromResourceNoScheme() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: EmptyDecoder())
+        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoding: emptyDecoding)
         let request = try URLRequest(resource: resource,
-                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
@@ -15,9 +17,9 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceWithScheme() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: EmptyDecoder())
+        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoding: emptyDecoding)
         let request = try URLRequest(resource: resource,
-                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
@@ -29,10 +31,10 @@ final class ResourceTests: XCTestCase {
     func testURLRequestFromResourceWithQuery() throws {
         let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource",
                                               queryParameters: [URLQueryItem(name: "testKey", value: "testValue")],
-                                              decoder: EmptyDecoder())
+                                              decoding: emptyDecoding)
 
         let request = try URLRequest(resource: resource,
-                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "GET")
@@ -46,10 +48,10 @@ final class ResourceTests: XCTestCase {
                                                          method: .post,
                                                          body: HTTP.Body(data: ["Test": "Test"],
                                                                          contentType: JSONContentType()),
-                                                         decoder: EmptyDecoder())
+                                                         decoding: emptyDecoding)
 
         let request = try URLRequest(resource: resource,
-                                     defaultRequestBehavior: EmptyRequestBehavior(),
+                                     requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "https://www.karmarama.com")!)
 
         XCTAssertEqual(request.httpMethod, "POST")
@@ -59,12 +61,12 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceMalformedResourceError() {
-        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: EmptyDecoder())
+        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoding: emptyDecoding)
 
         let expect = expectation(description: "Wait for error")
 
         XCTAssertThrowsError(try URLRequest(resource: resource,
-                                            defaultRequestBehavior: EmptyRequestBehavior(),
+                                            requestBehavior: EmptyRequestBehavior(),
                                             baseURL: URL(string: "https://www.karmarama.com")!)) { _ in
                                                 expect.fulfill()
         }
@@ -73,13 +75,13 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceMalformedURLError() {
-        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: EmptyDecoder())
+        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoding: emptyDecoding)
 
         let expect = expectation(description: "Wait for error")
 
         // stackoverflow.com/a/55627352/614442
         XCTAssertThrowsError(try URLRequest(resource: resource,
-                                            defaultRequestBehavior: EmptyRequestBehavior(),
+                                            requestBehavior: EmptyRequestBehavior(),
                                             baseURL: URL(string: "a://@@")!)) { _ in
                                                 expect.fulfill()
         }

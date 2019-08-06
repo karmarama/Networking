@@ -2,7 +2,17 @@ import Foundation
 
 public protocol ResourceRequestable {
     func load<Request: Encodable, Response: Decodable>(_ resource: Resource<Request, Response>,
+                                                       queue: OperationQueue,
                                                        completion: @escaping (Result<Response, Error>) -> Void)
+}
+
+public extension ResourceRequestable {
+    func load<Request: Encodable, Response: Decodable>(_ resource: Resource<Request, Response>,
+                                                       completion: @escaping (Result<Response, Error>) -> Void) {
+        load(resource,
+             queue: .main,
+             completion: completion)
+    }
 }
 
 public protocol URLSessionDataTaskLoader {
@@ -30,43 +40,63 @@ public struct Webservice: ResourceRequestable {
 
     public func load<Request: Encodable, Response: Decodable>
         (_ resource: Resource<Request, Response>,
+         queue: OperationQueue,
          completion: @escaping (Result<Response, Swift.Error>) -> Void) {
 
-        do {
-            let requestBehavior = defaultRequestBehavior.and(resource.requestBehaviour)
+        let requestBehavior = self.defaultRequestBehavior.and(resource.requestBehavior)
 
-            let request = requestBehavior.modify(planned: try URLRequest(resource: resource,
-                                                                         defaultRequestBehavior: defaultRequestBehavior,
-                                                                         baseURL: baseURL))
+        queue.addOperation {
+            do {
+                let request = requestBehavior.modify(planned: try URLRequest(resource: resource,
+                                                                             requestBehavior: requestBehavior,
+                                                                             baseURL: self.baseURL))
 
-            requestBehavior.before(sending: request)
+                requestBehavior.before(sending: request)
 
-            session.dataTask(with: request) { data, response, error in
-                let (data, response, error) = requestBehavior.modifyResponse(data: data,
-                                                                             response: response,
-                                                                             error: error)
-                if let response = response as? HTTPURLResponse {
-                    if response.isSuccessful {
-                        completion(Result { try resource.decoder.decode(Response.self,
-                                                                        from: data,
-                                                                        response: response)
-                        })
+                self.session.dataTask(with: request) { data, response, error in
+                    queue.addOperation {
+                        let (data, response, error) = requestBehavior.modifyResponse(data: data,
+                                                                                     response: response,
+                                                                                     error: error)
+                        if let response = response as? HTTPURLResponse {
+                            if response.isSuccessful {
+                                var decoder: ResourceDecoder
+                                var decodingQueue: DispatchQueue
 
-                        requestBehavior.after(completion: .success(response))
+                                switch resource.decoding {
+                                case let .background(resourceDecoder):
+                                    decoder = resourceDecoder
+                                    decodingQueue = .global(qos: .background)
+                                case let .qos(resourceDecoder, qos):
+                                    decoder = resourceDecoder
+                                    decodingQueue = .global(qos: qos)
+                                }
 
-                        // Early return to prevent calling after(completion:) RequestBehavior for failure
-                        return
-                    } else {
-                        completion(.failure(Error.http(response.statusCode, error)))
+                                decodingQueue.async {
+                                    let result = Result { try decoder.decode(Response.self,
+                                                                             from: data,
+                                                                             response: response)
+                                    }
+
+                                    queue.addOperation {
+                                        completion(result)
+                                        requestBehavior.after(completion: .success(response))
+                                    }
+                                }
+                            } else {
+                                completion(.failure(Error.http(response.statusCode, error)))
+                                requestBehavior.after(completion: .failure(Error.http(response.statusCode, error)))
+                            }
+                        } else {
+                            completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
+                            requestBehavior.after(completion: .failure(Error.unknown(error)))
+                        }
                     }
-                } else {
-                    completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
-                }
-
-                requestBehavior.after(completion: .failure(error ?? Error.unknown(error)))
-            }.resume()
-        } catch {
-            completion(.failure(error))
+                }.resume()
+            } catch {
+                completion(.failure(error))
+                requestBehavior.after(completion: .failure(error))
+            }
         }
     }
 }
