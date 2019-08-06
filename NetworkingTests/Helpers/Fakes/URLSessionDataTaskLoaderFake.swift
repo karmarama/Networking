@@ -14,7 +14,9 @@ struct URLSessionDataTaskLoaderFake: URLSessionDataTaskLoader {
 
     func dataTask(with request: URLRequest,
                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        completionHandler(data, response, error)
+        DispatchQueue.main.async {
+            completionHandler(self.data, self.response, self.error)
+        }
         return URLSessionDataTaskMock()
     }
 }
