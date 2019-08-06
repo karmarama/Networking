@@ -4,7 +4,7 @@ import XCTest
 final class WebserviceTests: XCTestCase {
     private var webservice: ResourceRequestable!
 
-    private let emptyDecoding = ResourceDecoding.background(EmptyDecoder())
+    private let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
 
     func testEmptyDataTaskSuccess() {
         let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
@@ -333,7 +333,7 @@ extension WebserviceTests {
                                                                                  httpVersion: nil,
                                                                                  headerFields: nil),
                                                        error: nil)
-        let verifiedDecoding = ResourceDecoding.background(BackgroundDecoderValidator())
+        let verifiedDecoding = ResourceDecodingExecution.background(BackgroundDecoderValidator())
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
@@ -363,7 +363,7 @@ extension WebserviceTests {
                                                                                  httpVersion: nil,
                                                                                  headerFields: nil),
                                                        error: nil)
-        let verifiedDecoding = ResourceDecoding.qos(BackgroundDecoderValidator(), .default)
+        let verifiedDecoding = ResourceDecodingExecution.qos(BackgroundDecoderValidator(), .default)
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 

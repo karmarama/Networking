@@ -2,7 +2,7 @@ import XCTest
 @testable import Networking
 
 final class ResourceTests: XCTestCase {
-    private let emptyDecoding = ResourceDecoding.background(EmptyDecoder())
+    private let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
 
     func testURLRequestFromResourceNoScheme() throws {
         let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoding: emptyDecoding)
