@@ -27,7 +27,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testHTTPFailingStatusCode() {
@@ -58,7 +58,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testNoHTTPURLResponseReceived() {
@@ -90,7 +90,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testRequestBehaviorOrderForSuccess() {
@@ -114,7 +114,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
 
         XCTAssertEqual(requestBehaviorMock.callOrder.count, 5)
         XCTAssertEqual(requestBehaviorMock.callOrder, ["modify(urlComponents:)",
@@ -145,7 +145,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
 
         XCTAssertEqual(requestBehaviorMock.callOrder.count, 5)
         XCTAssertEqual(requestBehaviorMock.callOrder, ["modify(urlComponents:)",
@@ -184,7 +184,7 @@ final class WebserviceTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 }
 
@@ -222,7 +222,7 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testResponseOnBackgroundThreadSuccess() {
@@ -256,7 +256,7 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testResponseOnMainThreadFailure() {
@@ -289,7 +289,7 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testResponseOnBackgroundThreadFailure() {
@@ -323,7 +323,7 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testResponseOnMainThreadBackgroundDecoding() {
@@ -353,7 +353,7 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testResponseOnMainThreadQualityDecoding() {
@@ -383,6 +383,6 @@ extension WebserviceTests {
             }
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 }

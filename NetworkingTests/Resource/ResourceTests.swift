@@ -71,7 +71,7 @@ final class ResourceTests: XCTestCase {
                                                 expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 
     func testURLRequestFromResourceMalformedURLError() {
@@ -86,6 +86,6 @@ final class ResourceTests: XCTestCase {
                                                 expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 }
