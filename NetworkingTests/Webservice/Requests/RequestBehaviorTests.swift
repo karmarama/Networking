@@ -80,7 +80,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(requestBehaviorMock.callOrder.contains("modify(planned:)"))
     }
@@ -103,7 +103,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(firstRequestBehaviorMock.callOrder.contains("modify(planned:)"))
         XCTAssertTrue(secondRequestBehaviorMock.callOrder.contains("modify(planned:)"))
@@ -132,7 +132,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertEqual(firstRequestBehaviorMock.request?.url?.absoluteString, "https://www.karmarama.com/")
         XCTAssertEqual(secondRequestBehaviorMock.request?.url?.absoluteString, "file:////a")
@@ -156,7 +156,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(requestBehaviorMock.callOrder.contains("before(sending:)"))
     }
@@ -179,7 +179,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(firstRequestBehaviorMock.callOrder.contains("before(sending:)"))
         XCTAssertTrue(secondRequestBehaviorMock.callOrder.contains("before(sending:)"))
@@ -202,7 +202,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(requestBehaviorMock.callOrder.contains("modifyResponse(data:response:error:)"))
     }
@@ -225,7 +225,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(firstRequestBehaviorMock.callOrder.contains("modifyResponse(data:response:error:)"))
         XCTAssertTrue(secondRequestBehaviorMock.callOrder.contains("modifyResponse(data:response:error:)"))
@@ -277,7 +277,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertNil(firstRequestBehaviorMock.data)
         XCTAssertEqual(secondRequestBehaviorMock.data, "data".data(using: .utf8)!)
@@ -331,7 +331,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         guard case let Webservice.Error.http(httpCode, httpUnderlying) = error! else {
             XCTFail("Expected a webservice http error")
@@ -366,7 +366,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(requestBehaviorMock.callOrder.contains("after(completion:)"))
     }
@@ -389,7 +389,7 @@ extension RequestBehaviorTests {
             self.expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
 
         XCTAssertTrue(firstRequestBehaviorMock.callOrder.contains("after(completion:)"))
         XCTAssertTrue(secondRequestBehaviorMock.callOrder.contains("after(completion:)"))

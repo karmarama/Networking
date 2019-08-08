@@ -66,7 +66,7 @@ public struct Webservice: ResourceRequestable {
                                 switch resource.decoding {
                                 case let .background(resourceDecoder):
                                     decoder = resourceDecoder
-                                    decodingQueue = .global(qos: .background)
+                                    decodingQueue = .global(qos: .default)
                                 case let .qos(resourceDecoder, qos):
                                     decoder = resourceDecoder
                                     decodingQueue = .global(qos: qos)
