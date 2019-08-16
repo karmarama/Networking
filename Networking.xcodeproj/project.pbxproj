@@ -107,6 +107,8 @@
 		870E01F6228AFBB4004A5931 /* JSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E01F5228AFBB4004A5931 /* JSONDecoderTests.swift */; };
 		874C03D3227B093500AF0F0F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 874C03D1227B093500AF0F0F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A30DEF022F2F70800909DF3 /* WebserviceTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEEF22F2F70800909DF3 /* WebserviceTestsUtilities.swift */; };
+		9A30DEF222F9AE7300909DF3 /* RequestBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEF122F9AE7300909DF3 /* RequestBehaviorTests.swift */; };
+		9A30DEF422F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEF322F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,8 @@
 		874C03D1227B093500AF0F0F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		874C03D2227B093500AF0F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A30DEEF22F2F70800909DF3 /* WebserviceTestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTestsUtilities.swift; sourceTree = "<group>"; };
+		9A30DEF122F9AE7300909DF3 /* RequestBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehaviorTests.swift; sourceTree = "<group>"; };
+		9A30DEF322F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehaviorTestsUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +322,8 @@
 		870E01C422860178004A5931 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				9A30DEF122F9AE7300909DF3 /* RequestBehaviorTests.swift */,
+				9A30DEF322F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift */,
 				870E01C522860187004A5931 /* HeaderProviderTests.swift */,
 			);
 			path = Requests;
@@ -767,9 +773,11 @@
 				870E01DF22887749004A5931 /* URL+Extension.swift in Sources */,
 				870E01C622860187004A5931 /* HeaderProviderTests.swift in Sources */,
 				9A30DEF022F2F70800909DF3 /* WebserviceTestsUtilities.swift in Sources */,
+				9A30DEF422F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift in Sources */,
 				870E01E222887BE7004A5931 /* RequestBehaviorMock.swift in Sources */,
 				870E01D622861D8D004A5931 /* HTTPURLResponseTests.swift in Sources */,
 				0ED22F3E22E0827D000564B3 /* FormURLEncoderTests.swift in Sources */,
+				9A30DEF222F9AE7300909DF3 /* RequestBehaviorTests.swift in Sources */,
 				870E01DC22887693004A5931 /* URLSessionDataTaskLoaderFake.swift in Sources */,
 				870E01D4228617D5004A5931 /* ResourceTests.swift in Sources */,
 				870E01CC22861386004A5931 /* HTTPBodyTests.swift in Sources */,
