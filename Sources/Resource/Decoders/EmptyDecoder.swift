@@ -1,6 +1,8 @@
 import Foundation
 
 public struct EmptyDecoder: ResourceDecoder {
+    public init() {}
+
     public func decode<Value: Decodable>(_ type: Value.Type,
                                          from data: Data?,
                                          response: HTTPURLResponse) throws -> Value {
