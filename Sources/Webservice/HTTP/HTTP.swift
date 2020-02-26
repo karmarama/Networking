@@ -29,6 +29,7 @@ public struct HTTP {
         case get
         case post
         case put
+        case patch
         case delete
         case head
         case connect
