@@ -2,11 +2,11 @@ import XCTest
 @testable import Networking
 
 class RequestBehaviorSimpleTests: XCTestCase {
-    let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
+    let emptyDecoding = EmptyDecoder()
 
     // MARK: - Modify URL components
     func testModifyURLComponentsCalled() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
         let requestBehaviorMock = RequestBehaviorMock()
 
         _ = try URLRequest(resource: resource,
@@ -17,7 +17,7 @@ class RequestBehaviorSimpleTests: XCTestCase {
     }
 
     func testModifyURLComponentsCalledNested() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
         let firstRequestBehaviorMock = RequestBehaviorMock()
         let secondRequestBehaviorMock = RequestBehaviorMock()
         let nestedRequestBehaviorMock = firstRequestBehaviorMock.and(secondRequestBehaviorMock)
@@ -31,7 +31,7 @@ class RequestBehaviorSimpleTests: XCTestCase {
     }
 
     func testModifyURLComponentsNestedPayload() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "", decoder: emptyDecoding)
         let firstRequestBehaviorMock = ModifyURLComponentsRequestBehaviorMock()
         firstRequestBehaviorMock.urlComponents = URLComponents(string: "https://a.b.c/path")
         let secondRequestBehaviorMock = ModifyURLComponentsRequestBehaviorMock()
@@ -49,7 +49,7 @@ class RequestBehaviorSimpleTests: XCTestCase {
 }
 
 final class RequestBehaviorTests: XCTestCase {
-    let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
+    let emptyDecoding = EmptyDecoder()
     let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
                                                    response: HTTPURLResponse(url: URL.fake(),
                                                                              statusCode: 200,
@@ -74,7 +74,7 @@ extension RequestBehaviorTests {
                                     session: sessionMock,
                                     defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -97,7 +97,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -126,7 +126,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -150,7 +150,7 @@ extension RequestBehaviorTests {
                                     session: sessionMock,
                                     defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -173,7 +173,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -196,7 +196,7 @@ extension RequestBehaviorTests {
                                     session: sessionMock,
                                     defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -219,7 +219,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -261,7 +261,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: .background(decoder))
+                                              decoder: decoder)
 
         var data: Data?
         var response: URLResponse?
@@ -317,7 +317,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: .background(decoder))
+                                              decoder: decoder)
 
         var error: Error! = nil
 
@@ -333,7 +333,7 @@ extension RequestBehaviorTests {
 
         waitForExpectations(timeout: 0.5, handler: nil)
 
-        guard case let Webservice.Error.http(httpCode, httpUnderlying) = error! else {
+        guard case let Webservice.Error.http(httpCode, httpUnderlying, _) = error! else {
             XCTFail("Expected a webservice http error")
             return
         }
@@ -360,7 +360,7 @@ extension RequestBehaviorTests {
                                     session: sessionMock,
                                     defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
@@ -383,7 +383,7 @@ extension RequestBehaviorTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: thirdRequestBehaviorMock,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoding)
 
         webservice.load(resource) { _ in
             self.expect.fulfill()
