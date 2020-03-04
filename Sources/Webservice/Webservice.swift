@@ -22,8 +22,8 @@ public protocol URLSessionDataTaskLoader {
 
 public struct Webservice: ResourceRequestable {
     public enum Error: Swift.Error {
-        case http(HTTP.StatusCode, Swift.Error?)
-        case unknown(Swift.Error?)
+        case http(HTTP.StatusCode, Swift.Error?, Data?)
+        case system(Swift.Error?)
     }
 
     private let baseURL: URL
@@ -60,36 +60,23 @@ public struct Webservice: ResourceRequestable {
                                                                                      error: error)
                         if let response = response as? HTTPURLResponse {
                             if response.isSuccessful {
-                                var decoder: ResourceDecoder
-                                var decodingQueue: DispatchQueue
 
-                                switch resource.decoding {
-                                case let .background(resourceDecoder):
-                                    decoder = resourceDecoder
-                                    decodingQueue = .global(qos: .default)
-                                case let .qos(resourceDecoder, qos):
-                                    decoder = resourceDecoder
-                                    decodingQueue = .global(qos: qos)
-                                }
-
-                                decodingQueue.async {
-                                    let result = Result { try decoder.decode(Response.self,
-                                                                             from: data,
-                                                                             response: response)
+                                    let result = Result {
+                                        try resource.decoder.decode(Response.self, from: data, response: response)
                                     }
 
                                     queue.addOperation {
                                         completion(result)
                                         requestBehavior.after(completion: .success(response))
                                     }
-                                }
+                                
                             } else {
-                                completion(.failure(Error.http(response.statusCode, error)))
-                                requestBehavior.after(completion: .failure(Error.http(response.statusCode, error)))
+                                completion(.failure(Error.http(response.statusCode, error, data)))
+                                requestBehavior.after(completion: .failure(Error.http(response.statusCode, error, data)))
                             }
                         } else {
-                            completion(.failure(Error.unknown(error))) // should this be a system error not unknown?
-                            requestBehavior.after(completion: .failure(Error.unknown(error)))
+                            completion(.failure(Error.system(error)))
+                            requestBehavior.after(completion: .failure(Error.system(error)))
                         }
                     }
                 }.resume()

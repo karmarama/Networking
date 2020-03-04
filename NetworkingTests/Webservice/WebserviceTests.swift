@@ -4,7 +4,7 @@ import XCTest
 final class WebserviceTests: XCTestCase {
     private var webservice: ResourceRequestable!
 
-    private let emptyDecoding = ResourceDecodingExecution.background(EmptyDecoder())
+    private let emptyDecoder = EmptyDecoder()
 
     func testEmptyDataTaskSuccess() {
         let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
@@ -16,7 +16,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -40,7 +40,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -49,7 +49,7 @@ final class WebserviceTests: XCTestCase {
             case .success:
                 XCTFail("Expected an HTTP status error")
             case let .failure(error):
-                if case let Webservice.Error.http(code, _) = error {
+                if case let Webservice.Error.http(code, _, _) = error {
                     XCTAssertEqual(code, 400)
                 } else {
                     XCTFail("Expected a Webservice.Error.http error type")
@@ -72,7 +72,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -81,7 +81,7 @@ final class WebserviceTests: XCTestCase {
             case .success:
                 XCTFail("Expected an unknown error")
             case let .failure(error):
-                if case let Webservice.Error.unknown(error as NSError) = error {
+                if case let Webservice.Error.system(error as NSError) = error {
                     XCTAssertEqual(error, placeholderError)
                 } else {
                     XCTFail("Expected a Webservice.Error.http error type")
@@ -106,7 +106,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -137,7 +137,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -169,7 +169,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoding: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -205,7 +205,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -239,7 +239,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -272,7 +272,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -306,7 +306,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoding: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -319,66 +319,6 @@ extension WebserviceTests {
         DispatchQueue(label: "worker").async {
             self.webservice.load(resource, queue: queue) { _ in
                 XCTAssertEqual(OperationQueue.current, queue)
-                expectBackground.fulfill()
-            }
-        }
-
-        waitForExpectations(timeout: 0.5, handler: nil)
-    }
-
-    func testResponseOnMainThreadBackgroundDecoding() {
-        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
-                                                       response: HTTPURLResponse(url: URL.fake(),
-                                                                                 statusCode: 200,
-                                                                                 httpVersion: nil,
-                                                                                 headerFields: nil),
-                                                       error: nil)
-        let verifiedDecoding = ResourceDecodingExecution.background(BackgroundDecoderValidator())
-
-        webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
-
-        let resource = Resource<Empty, Empty>(endpoint: "/",
-                                              decoding: verifiedDecoding)
-
-        let expectAsync = expectation(description: "async")
-        let expectBackground = expectation(description: "background")
-
-        webservice.load(resource) { _ in
-            expectAsync.fulfill()
-        }
-
-        DispatchQueue(label: "worker").async {
-            self.webservice.load(resource) { _ in
-                expectBackground.fulfill()
-            }
-        }
-
-        waitForExpectations(timeout: 0.5, handler: nil)
-    }
-
-    func testResponseOnMainThreadQualityDecoding() {
-        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
-                                                       response: HTTPURLResponse(url: URL.fake(),
-                                                                                 statusCode: 200,
-                                                                                 httpVersion: nil,
-                                                                                 headerFields: nil),
-                                                       error: nil)
-        let verifiedDecoding = ResourceDecodingExecution.qos(BackgroundDecoderValidator(), .default)
-
-        webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
-
-        let resource = Resource<Empty, Empty>(endpoint: "/",
-                                              decoding: verifiedDecoding)
-
-        let expectAsync = expectation(description: "async")
-        let expectBackground = expectation(description: "background")
-
-        webservice.load(resource) { _ in
-            expectAsync.fulfill()
-        }
-
-        DispatchQueue(label: "worker").async {
-            self.webservice.load(resource) { _ in
                 expectBackground.fulfill()
             }
         }

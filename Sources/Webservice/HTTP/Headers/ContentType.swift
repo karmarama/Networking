@@ -34,6 +34,9 @@ public struct JSONContentType: ContentType {
     }
 
     private let charSet: CharSet?
+    public private (set) var encoder: ContentTypeEncoder?
+    public private (set) var decoder: ContentTypeDecoder?
+
     public var header: HTTP.Header {
 
         if let charSet = charSet {
@@ -42,16 +45,12 @@ public struct JSONContentType: ContentType {
         return ("Content-Type", "application/json")
     }
 
-    public var encoder: ContentTypeEncoder? {
-        return JSONEncoder()
-    }
-
-    public var decoder: ContentTypeDecoder? {
-        return JSONDecoder()
-    }
-
-    public init(charSet: CharSet? = nil) {
+    public init(charSet: CharSet? = nil,
+                encoder: JSONEncoder = JSONEncoder(),
+                decoder: JSONDecoder = JSONDecoder()) {
         self.charSet = charSet
+        self.encoder = encoder
+        self.decoder = decoder
     }
 }
 
