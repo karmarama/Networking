@@ -2,10 +2,10 @@ import XCTest
 @testable import Networking
 
 final class ResourceTests: XCTestCase {
-    private let emptyDecoding = EmptyDecoder()
+    private let emptyDecoder = EmptyDecoder()
 
     func testURLRequestFromResourceNoScheme() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: emptyDecoder)
         let request = try URLRequest(resource: resource,
                                      requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "www.karmarama.com")!)
@@ -17,7 +17,7 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceWithScheme() throws {
-        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource", decoder: emptyDecoder)
         let request = try URLRequest(resource: resource,
                                      requestBehavior: EmptyRequestBehavior(),
                                      baseURL: URL(string: "https://www.karmarama.com")!)
@@ -31,7 +31,7 @@ final class ResourceTests: XCTestCase {
     func testURLRequestFromResourceWithQuery() throws {
         let resource = Resource<Empty, Empty>(endpoint: "/path/to/resource",
                                               queryParameters: [URLQueryItem(name: "testKey", value: "testValue")],
-                                              decoder: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let request = try URLRequest(resource: resource,
                                      requestBehavior: EmptyRequestBehavior(),
@@ -48,7 +48,7 @@ final class ResourceTests: XCTestCase {
                                                          method: .post,
                                                          body: HTTP.Body(data: ["Test": "Test"],
                                                                          contentType: JSONContentType()),
-                                                         decoder: emptyDecoding)
+                                                         decoder: emptyDecoder)
 
         let request = try URLRequest(resource: resource,
                                      requestBehavior: EmptyRequestBehavior(),
@@ -61,7 +61,7 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceMalformedResourceError() {
-        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: emptyDecoder)
 
         let expect = expectation(description: "Wait for error")
 
@@ -75,7 +75,7 @@ final class ResourceTests: XCTestCase {
     }
 
     func testURLRequestFromResourceMalformedURLError() {
-        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "path/to/resource", decoder: emptyDecoder)
 
         let expect = expectation(description: "Wait for error")
 

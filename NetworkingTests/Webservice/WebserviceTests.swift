@@ -4,7 +4,7 @@ import XCTest
 final class WebserviceTests: XCTestCase {
     private var webservice: ResourceRequestable!
 
-    private let emptyDecoding = EmptyDecoder()
+    private let emptyDecoder = EmptyDecoder()
 
     func testEmptyDataTaskSuccess() {
         let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
@@ -16,7 +16,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -40,7 +40,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -72,7 +72,7 @@ final class WebserviceTests: XCTestCase {
 
         webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -106,7 +106,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -137,7 +137,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -169,7 +169,7 @@ final class WebserviceTests: XCTestCase {
                                 session: sessionMock,
                                 defaultRequestBehavior: requestBehaviorMock)
 
-        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoding)
+        let resource = Resource<Empty, Empty>(endpoint: "/", decoder: emptyDecoder)
 
         let expect = expectation(description: "async")
 
@@ -205,7 +205,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoder: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -239,7 +239,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoder: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -272,7 +272,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoder: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
@@ -306,7 +306,7 @@ extension WebserviceTests {
 
         let resource = Resource<Empty, Empty>(endpoint: "/",
                                               requestBehavior: validationBehavior,
-                                              decoder: emptyDecoding)
+                                              decoder: emptyDecoder)
 
         let expectAsync = expectation(description: "async")
         let expectBackground = expectation(description: "background")
