@@ -40,6 +40,6 @@ extension URLRequest {
             allHTTPHeaderFields = fields
         }
 
-        httpMethod = resource.method.rawValue
+        httpMethod = resource.method.rawValue.uppercased()
     }
 }
