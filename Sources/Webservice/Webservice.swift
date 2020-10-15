@@ -69,10 +69,10 @@ public struct Webservice: ResourceRequestable {
                                         completion(result)
                                         requestBehavior.after(completion: .success(response))
                                     }
-                                
                             } else {
                                 completion(.failure(Error.http(response.statusCode, error, data)))
-                                requestBehavior.after(completion: .failure(Error.http(response.statusCode, error, data)))
+                                requestBehavior.after(completion:
+                                    .failure(Error.http(response.statusCode, error, data)))
                             }
                         } else {
                             completion(.failure(Error.system(error)))
