@@ -180,6 +180,6 @@ struct SubProducts: Encodable {
         var container = encoder.unkeyedContainer()
         let superEncoder = container.superEncoder()
         var superContainer = superEncoder.unkeyedContainer()
-        try superContainer.encode (subProducts)
+        try superContainer.encode(subProducts)
     }
 }
