@@ -12,6 +12,6 @@ extension JSONDecoder: ResourceDecoder {
                 throw Error.noData
             }
 
-            return try JSONDecoder().decode(type, from: data)
+            return try decode(type, from: data)
     }
 }
