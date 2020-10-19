@@ -19,9 +19,9 @@ final class JSONDecoderTests: XCTestCase {`
 
     func testDecodeWithoutData() throws {
         XCTAssertThrowsError(try JSONDecoder().decode(TestData.self,
-                                                  from: nil,
-                                                  response: HTTPURLResponse())) { error in
-                                                    XCTAssertTrue((error as? JSONDecoder.Error) == .noData)
-            }
+                                                      from: nil,
+                                                      response: HTTPURLResponse())) { error in
+            XCTAssertTrue((error as? JSONDecoder.Error) == .noData)
+        }
     }
 }
