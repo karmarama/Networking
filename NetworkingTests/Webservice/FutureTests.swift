@@ -25,6 +25,7 @@ final class FutureTests: XCTestCase {
 
         webservice
             .future(for: resource)
+            .receive(on: DispatchQueue.main)
             .subscribe(Subscribers.Sink(
                         receiveCompletion: { completion in
                             if case let .failure(error) = completion {
@@ -69,6 +70,37 @@ final class FutureTests: XCTestCase {
                                 }
                             }
                         }, receiveValue: { _ in
+                        }))
+
+        waitForExpectations(timeout: 0.5, handler: nil)
+    }
+
+    func testFutureMainQueue() {
+        let sessionMock = URLSessionDataTaskLoaderFake(data: nil,
+                                                       response: HTTPURLResponse(url: URL.fake(),
+                                                                                 statusCode: 200,
+                                                                                 httpVersion: nil,
+                                                                                 headerFields: nil),
+                                                       error: nil)
+
+        webservice = Webservice(baseURL: URL.fake(), session: sessionMock)
+
+        let resource = Resource<Networking.Empty, Networking.Empty>(endpoint: "/", decoder: emptyDecoder)
+
+        let expectedCompletion = expectation(description: "expectedCompletion")
+        let expectedValue = expectation(description: "expectedValue")
+
+        webservice
+            .future(for: resource, queue: .main)
+            .subscribe(Subscribers.Sink(
+                        receiveCompletion: { completion in
+                            if case let .failure(error) = completion {
+                                XCTFail("Expected Empty result, got \(error)")
+                            }
+                            expectedCompletion.fulfill()
+                        },
+                        receiveValue: { _ in
+                            expectedValue.fulfill()
                         }))
 
         waitForExpectations(timeout: 0.5, handler: nil)
