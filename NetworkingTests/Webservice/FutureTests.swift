@@ -34,6 +34,7 @@ final class FutureTests: XCTestCase {
                             expectedCompletion.fulfill()
                         },
                         receiveValue: { _ in
+                            XCTAssertTrue(Thread.isMainThread)
                             expectedValue.fulfill()
                         }))
 
@@ -58,6 +59,7 @@ final class FutureTests: XCTestCase {
             .future(for: resource)
             .subscribe(Subscribers.Sink(
                         receiveCompletion: { completion in
+                            XCTAssertFalse(Thread.isMainThread)
                             switch completion {
                             case .finished:
                                 XCTFail("Expected an HTTP status error")
@@ -100,6 +102,7 @@ final class FutureTests: XCTestCase {
                             expectedCompletion.fulfill()
                         },
                         receiveValue: { _ in
+                            XCTAssertTrue(Thread.isMainThread)
                             expectedValue.fulfill()
                         }))
 

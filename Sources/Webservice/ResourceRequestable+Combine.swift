@@ -9,7 +9,7 @@ extension ResourceRequestable {
      - Parameter resource: Wrapper around a network request
      - Parameter queue: Operation queue where the decoding and behaviours occur
      - Note: When using the default queue,
-     use .receive(on: .main) on your publisher to ensure the subscription runs in the main queue
+        use .receive(on: .main) on your publisher to ensure the subscription runs in the main queue
      */
     func future<Request, Response>(
         for resource: Resource<Request, Response>,
