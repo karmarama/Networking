@@ -109,6 +109,11 @@
 		9A30DEF022F2F70800909DF3 /* WebserviceTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEEF22F2F70800909DF3 /* WebserviceTestsUtilities.swift */; };
 		9A30DEF222F9AE7300909DF3 /* RequestBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEF122F9AE7300909DF3 /* RequestBehaviorTests.swift */; };
 		9A30DEF422F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30DEF322F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift */; };
+		D964342F253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */; };
+		D9643430253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */; };
+		D9643431253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */; };
+		D9643432253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */; };
+		D964343E253E3A7B00B60EBA /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964343D253E3A7B00B60EBA /* FutureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +172,8 @@
 		9A30DEEF22F2F70800909DF3 /* WebserviceTestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTestsUtilities.swift; sourceTree = "<group>"; };
 		9A30DEF122F9AE7300909DF3 /* RequestBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehaviorTests.swift; sourceTree = "<group>"; };
 		9A30DEF322F9B2A000909DF3 /* RequestBehaviorTestsUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehaviorTestsUtilities.swift; sourceTree = "<group>"; };
+		D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResourceRequestable+Combine.swift"; sourceTree = "<group>"; };
+		D964343D253E3A7B00B60EBA /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +265,7 @@
 				870E01AD2285C5BF004A5931 /* Requests */,
 				870E00E622859074004A5931 /* HTTP */,
 				870E00F22285A591004A5931 /* Webservice.swift */,
+				D964342E253E3A0700B60EBA /* ResourceRequestable+Combine.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 				870E01C422860178004A5931 /* Requests */,
 				870E01D722887653004A5931 /* WebserviceTests.swift */,
 				9A30DEEF22F2F70800909DF3 /* WebserviceTestsUtilities.swift */,
+				D964343D253E3A7B00B60EBA /* FutureTests.swift */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -699,6 +708,7 @@
 				0EE2CAF722E70CDC004976AF /* FormURLData.swift in Sources */,
 				0EDBC86622DCBC25006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D422E5EB21009702BC /* FormURLEncoder.swift in Sources */,
+				D9643430253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */,
 				0EDBC86722DCBC25006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EE2CAFC22E70D3D004976AF /* FormURLEncoding.swift in Sources */,
 				0EE2CAE822E70B90004976AF /* FormURLSingleValueEncoding.swift in Sources */,
@@ -727,6 +737,7 @@
 				0EE2CAF822E70CDC004976AF /* FormURLData.swift in Sources */,
 				0EDBC87F22DCBDEE006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D522E5EB22009702BC /* FormURLEncoder.swift in Sources */,
+				D9643431253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */,
 				0EDBC88022DCBDEE006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EE2CAFD22E70D3D004976AF /* FormURLEncoding.swift in Sources */,
 				0EE2CAE922E70B90004976AF /* FormURLSingleValueEncoding.swift in Sources */,
@@ -755,6 +766,7 @@
 				0EE2CAF922E70CDC004976AF /* FormURLData.swift in Sources */,
 				0EDBC89822DCBE14006DB79E /* HTTPURLResponse+Extension.swift in Sources */,
 				0E2888D622E5EB22009702BC /* FormURLEncoder.swift in Sources */,
+				D9643432253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */,
 				0EDBC89922DCBE14006DB79E /* JSONDecoder+Extension.swift in Sources */,
 				0EE2CAFE22E70D3D004976AF /* FormURLEncoding.swift in Sources */,
 				0EE2CAEA22E70B90004976AF /* FormURLSingleValueEncoding.swift in Sources */,
@@ -769,6 +781,7 @@
 			files = (
 				870E01F6228AFBB4004A5931 /* JSONDecoderTests.swift in Sources */,
 				0E09A1CF22E8979F0054A7C2 /* URLComponentTests.swift in Sources */,
+				D964343E253E3A7B00B60EBA /* FutureTests.swift in Sources */,
 				870E01D822887653004A5931 /* WebserviceTests.swift in Sources */,
 				870E01DF22887749004A5931 /* URL+Extension.swift in Sources */,
 				870E01C622860187004A5931 /* HeaderProviderTests.swift in Sources */,
@@ -806,6 +819,7 @@
 				0EE2CAF622E70CDC004976AF /* FormURLData.swift in Sources */,
 				870E00F122859F17004A5931 /* JSONDecoder+Extension.swift in Sources */,
 				0ED22F3C22E078D6000564B3 /* FormURLEncoder.swift in Sources */,
+				D964342F253E3A0700B60EBA /* ResourceRequestable+Combine.swift in Sources */,
 				870E01012285B1B6004A5931 /* EmptyDecoder.swift in Sources */,
 				0EE2CAFB22E70D3D004976AF /* FormURLEncoding.swift in Sources */,
 				0EE2CAE722E70B90004976AF /* FormURLSingleValueEncoding.swift in Sources */,

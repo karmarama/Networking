@@ -1,7 +1,7 @@
 import XCTest
 @testable import Networking
 
-final class JSONDecoderTests: XCTestCase {`
+final class JSONDecoderTests: XCTestCase {
     private struct TestData: Codable, Equatable {
         let clientName: String
     }
