@@ -5,7 +5,7 @@ import Foundation
 @available(tvOS 13.0, *)
 @available(OSX 10.15, *)
 @available(iOS 13.0, *)
-extension ResourceRequestable {
+public extension ResourceRequestable {
 
     /**
      Creates a future that completes when the load(resource:, queue:) completes.
